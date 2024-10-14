@@ -12,6 +12,7 @@ export class MonsterselectComponent {
 musicMenu: string = "public/services/musics/MenuMusic.mp3"
 
 monstersList!: iMonsters[]
+monsterListActive!: iMonsters
 monsterPic!: string
 monsterIcon!: string
 backImage!: string
@@ -32,6 +33,10 @@ ngOnInit() {
 this.monsterPic = this.monstersList[0].img
 this.monsterIcon = this.monstersList[0].icon
 this.backImage = `background-image: url(${this.monsterPic})`
+this.monsterListActive = this.monstersList[0]
+console.log("attivo",this.monsterListActive);
+
+
     }
 
 
