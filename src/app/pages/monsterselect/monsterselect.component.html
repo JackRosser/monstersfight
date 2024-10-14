@@ -6,17 +6,45 @@
     <div
       class="backdrop-blur-sm shadow-md border-t md:border-b bg-black bg-opacity-30 w-full flex p-5 font-medium text-white flex-col justify-center gap-2"
     >
-      <h2 class="text-3xl">Nome Mostro</h2>
-      <p class="text-[0.7rem]">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-        maiores
-      </p>
-      <div class="border flex flex-col gap-2">
-        <h3>ATK: 123</h3>
-        <h3>HP: 123</h3>
-        <h3>DEF: 123</h3>
-        <h3>STAMINA: 123</h3>
-        <h3>SPEED: 123</h3>
+      <img
+        [attr.src]="monsterIcon"
+        alt="icon"
+        class="absolute rounded-full max-h-20 top-0 right-[0.5rem] -translate-y-[50%] border shadow-sm z-20"
+      />
+
+      <div class="flex flex-col gap-3">
+        <h2
+          class="text-[4rem] absolute top-0 start-0 -translate-y-[75%] text-black opacity-40"
+        >
+          Nome Mostro
+        </h2>
+        <h2 class="text-[2.5rem] absolute top-0 -translate-y-[75%]">
+          Nome Mostro
+        </h2>
+
+        <p
+          class="text-[1rem] absolute end-[1rem] bottom-[1rem] max-w-[250px] text-end"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
+          maiores
+        </p>
+        <h3>
+          <span class="bg-black py-1 px-4 rounded-md me-1 italic">ATK</span> 123
+        </h3>
+        <h3>
+          <span class="bg-black py-1 px-4 rounded-md me-1 italic">HP</span> 123
+        </h3>
+        <h3>
+          <span class="bg-black py-1 px-4 rounded-md me-1 italic">DEF</span> 123
+        </h3>
+        <h3>
+          <span class="bg-black py-1 px-4 rounded-md me-1 italic">STAMINA</span>
+          123
+        </h3>
+        <h3>
+          <span class="bg-black py-1 px-4 rounded-md me-1 italic">SPEED</span>
+          123
+        </h3>
       </div>
     </div>
   </div>

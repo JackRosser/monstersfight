@@ -13,6 +13,7 @@ musicMenu: string = "public/services/musics/MenuMusic.mp3"
 
 monstersList!: iMonsters[]
 monsterPic!: string
+monsterIcon!: string
 backImage!: string
 
 scorrimento(): void {
@@ -29,6 +30,7 @@ ngOnInit() {
     this.monstersList = data
     if(this.monstersList.length > 0) {
 this.monsterPic = this.monstersList[0].img
+this.monsterIcon = this.monstersList[0].icon
 this.backImage = `background-image: url(${this.monsterPic})`
     }
 

@@ -9,7 +9,7 @@
         "def": 80,
         "speed": 50,
         "img": "monsters/terra/e82b63da-ab0a-429c-815d-25337176fbb5.webp",
-        "icon": "terra.webp",
+        "icon": "services/icons/terra.webp",
         "description": "Bramble \u00e8 famoso per i suoi attacchi brutali, inflitti con precisione letale.",
         "principale": "hp",
         "secondario": "def",
