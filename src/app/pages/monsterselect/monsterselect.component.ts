@@ -9,19 +9,22 @@ import { Component } from '@angular/core';
 export class MonsterselectComponent {
 
 // AUDIO
-musicMenu: string = "public/services/musics/MenuMusic.mp3"
+// musicMenu: string = "public/services/musics/MenuMusic.mp3"
 
 monstersList!: iMonsters[]
 monsterListActive!: iMonsters
-monsterPic!: string
-monsterIcon!: string
-backImage!: string
+monsterBg!: any
 
-scorrimento(): void {
+monsterHover(monster: iMonsters): void {
+this.monsterListActive = monster
+this.monsterBg = `background-image: url(${this.monsterListActive.img})`
 
 }
 
 ngOnInit() {
+
+
+
   fetch("monsters.json").then(res => {
     if (!res.ok) {
       throw new Error("Errore nella chiamata")
@@ -29,23 +32,25 @@ ngOnInit() {
     return res.json()
   }).then((data:iMonsters[]) => {
     this.monstersList = data
-    if(this.monstersList.length > 0) {
-this.monsterPic = this.monstersList[0].img
-this.monsterIcon = this.monstersList[0].icon
-this.backImage = `background-image: url(${this.monsterPic})`
+    if(this.monstersList) {
 this.monsterListActive = this.monstersList[0]
-console.log("attivo",this.monsterListActive);
-
-
-    }
-
-
+ }
+ if(this.monsterListActive) {
+this.monsterBg = `background-image: url(${this.monsterListActive.img})`
+ }
+ console.log(this.monsterBg);
 
   }).catch(err => {
     console.log("ERRORE:", err);
 
   })
 
+
+
+
 }
+
+
+
 
 }
