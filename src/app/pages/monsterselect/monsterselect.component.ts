@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class MonsterselectComponent {
 
+
+
 // AUDIO
 // musicMenu: string = "public/services/musics/MenuMusic.mp3"
 
@@ -38,7 +40,6 @@ this.monsterListActive = this.monstersList[0]
  if(this.monsterListActive) {
 this.monsterBg = `background-image: url(${this.monsterListActive.img})`
  }
- console.log(this.monsterBg);
 
   }).catch(err => {
     console.log("ERRORE:", err);

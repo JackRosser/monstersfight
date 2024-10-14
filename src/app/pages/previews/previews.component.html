@@ -1,0 +1,18 @@
+<ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+  <li
+    *ngFor="let monster of monstersList; let i = index"
+    class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl"
+    (mouseover)="monsterHover(monster)"
+  >
+    <h2
+      class="text-[0.8rem] md:text-sm absolute top-0 left-0 w-full text-center rounded-tl-3xl rounded-tr-3xl backdrop-blur-[1px] bg-black bg-opacity-40 text-white"
+    >
+      {{ monstersList[i].name }}
+    </h2>
+    <img
+      [attr.src]="monstersList[i].icon"
+      class="absolute max-h-[2rem] md:max-h-[3.5rem] end-0 bottom-0 rounded-br-3xl rounded-tl-3xl"
+    />
+    <img [attr.src]="monstersList[i].img" class="rounded-3xl shadow-md" />
+  </li>
+</ul>

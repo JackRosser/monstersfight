@@ -1,71 +1,20 @@
-<section class="flex w-full h-full flex-col lg:flex-row">
+<section *ngIf="monstersList" class="flex w-full h-full flex-col lg:flex-row">
+  <!-- mostro principale a sinistra -->
   <div
-    *ngIf="monstersList"
-    class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-1/3 bg-cover bg-center md:bg-top lg:bg-center transition-opacity duration-500 flex flex-col justify-end lg:justify-center"
+    class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-1/3 bg-cover bg-center md:bg-top lg:bg-center flex flex-col justify-end lg:justify-center visibile"
     [style]="monsterBg"
   >
-    <div
-      class="backdrop-blur-sm shadow-md border-t md:border-b bg-black bg-opacity-30 w-full flex p-5 font-medium text-white flex-col justify-center gap-2"
-    >
-      <img
-        [attr.src]="monsterListActive.icon"
-        alt="icon"
-        class="absolute rounded-full max-h-20 top-0 right-[0.5rem] -translate-y-[50%] border shadow-sm z-20"
-      />
-
-      <div class="flex flex-col gap-3">
-        <h2
-          class="text-[1.8rem] md:text-[2.5rem] absolute top-0 -translate-y-[120%] bg-black bg-opacity-50 shadow-md border px-3 rounded-xl"
-        >
-          {{ monsterListActive.name }}
-        </h2>
-
-        <p
-          class="text-[0.7rem] md:text-[1rem] absolute end-[1rem] bottom-[1rem] max-w-[150px] md:max-w-[250px] text-end"
-        >
-          {{ monsterListActive.description }}
-        </p>
-        <h3>
-          <span class="bg-black py-1 px-4 rounded-md me-1 italic">HP</span>
-          {{ monsterListActive.hp }}
-        </h3>
-        <h3>
-          <span class="bg-black py-1 px-4 rounded-md me-1 italic">ATK</span>
-          {{ monsterListActive.atk }}
-        </h3>
-        <h3>
-          <span class="bg-black py-1 px-4 rounded-md me-1 italic">DEF</span>
-          {{ monsterListActive.def }}
-        </h3>
-        <h3>
-          <span class="bg-black py-1 px-4 rounded-md me-1 italic">STAMINA</span>
-          {{ monsterListActive.stamina }}
-        </h3>
-        <h3>
-          <span class="bg-black py-1 px-4 rounded-md me-1 italic">SPEED</span>
-          {{ monsterListActive.speed }}
-        </h3>
-      </div>
-    </div>
+    <app-mainmonster
+      [monstersList]="monstersList"
+      [monsterBg]="monsterBg"
+      [monsterListActive]="monsterListActive"
+    ></app-mainmonster>
   </div>
-  <ul
-    class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-2/3 px-2 overflow-auto grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3 py-3"
-  >
-    <li
-      *ngFor="let monster of monstersList; let i = index"
-      class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl"
-      (mouseover)="monsterHover(monster)"
-    >
-      <h2
-        class="text-[0.8rem] md:text-sm absolute top-0 left-0 w-full text-center rounded-tl-3xl rounded-tr-3xl backdrop-blur-[1px] bg-black bg-opacity-40 text-white"
-      >
-        {{ monstersList[i].name }}
-      </h2>
-      <img
-        [attr.src]="monstersList[i].icon"
-        class="absolute max-h-[2rem] md:max-h-[3.5rem] end-0 bottom-0 rounded-br-3xl rounded-tl-3xl"
-      />
-      <img [attr.src]="monstersList[i].img" class="rounded-3xl shadow-md" />
-    </li>
-  </ul>
+  <div class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-2/3 px-2 overflow-auto py-3">
+    <!-- previews -->
+    <app-previews
+      [monstersList]="monstersList"
+      [monsterHover]="monsterHover.bind(this)"
+    ></app-previews>
+  </div>
 </section>

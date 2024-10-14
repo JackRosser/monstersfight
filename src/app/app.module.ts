@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Route, RouterModule } from '@angular/router';
 import { MonsterselectComponent } from './pages/monsterselect/monsterselect.component';
+import { PreviewsComponent } from './pages/previews/previews.component';
+import { MainmonsterComponent } from './pages/previews/mainmonster/mainmonster.component';
 
 const routes: Route[] = [
   {
@@ -17,7 +19,9 @@ const routes: Route[] = [
 @NgModule({
   declarations: [
     AppComponent,
-    MonsterselectComponent
+    MonsterselectComponent,
+    PreviewsComponent,
+    MainmonsterComponent
   ],
   imports: [
     BrowserModule,
