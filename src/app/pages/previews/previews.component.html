@@ -1,7 +1,7 @@
 <ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3">
   <li
     *ngFor="let monster of monstersList; let i = index"
-    class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl"
+    class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl active:scale-90 active:grayscale transition-transform duration-[300ms]"
     [style]="borderActive"
     (mouseover)="monsterHover(monster)"
   >

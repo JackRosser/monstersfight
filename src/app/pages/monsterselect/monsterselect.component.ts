@@ -39,6 +39,8 @@ ngOnInit() {
     return res.json()
   }).then((data:iMonsters[]) => {
     // GENERAZIONE DELLA LISTA DEI MOSTRI IN ORDINE ALFABETICO
+    console.log(data);
+
     this.monstersList = data.sort((a, b) => {
       if (a.name < b.name) {
         return -1;
