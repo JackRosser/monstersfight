@@ -11,8 +11,9 @@
     ></app-mainmonster>
   </div>
   <div
-    class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-2/3 p-3 md:px-5 overflow-auto"
+    class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-2/3 p-3 md:px-5 overflow-auto flex flex-col items-center gap-y-5"
   >
+    <app-selectattribute></app-selectattribute>
     <!-- previews -->
     <app-previews
       [monstersList]="monstersList"
@@ -20,5 +21,3 @@
     ></app-previews>
   </div>
 </section>
-
-<!-- [activeBorder]="activeBorder" -->

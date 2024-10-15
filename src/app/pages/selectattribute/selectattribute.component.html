@@ -1,0 +1,50 @@
+<section class="flex gap-2 md:gap-10 lg:gap-4 xl:gap-10 lg:mt-[4rem]">
+  <img
+    src="services/icons/acqua.webp"
+    alt="icon"
+    [class]="iconClass"
+    (click)="
+      attributeChanger('acqua', 'fuoco', 'vento', 'terra', 'erba', 'legendary')
+    "
+  />
+  <img
+    src="services/icons/fuoco.webp"
+    alt="icon"
+    [class]="iconClass"
+    (click)="
+      attributeChanger('fuoco', 'acqua', 'vento', 'terra', 'erba', 'legendary')
+    "
+  />
+  <img
+    src="services/icons/vento.webp"
+    alt="icon"
+    [class]="iconClass"
+    (click)="
+      attributeChanger('vento', 'fuoco', 'acqua', 'terra', 'erba', 'legendary')
+    "
+  />
+  <img
+    src="services/icons/terra.webp"
+    alt="icon"
+    [class]="iconClass"
+    (click)="
+      attributeChanger('terra', 'fuoco', 'vento', 'acqua', 'erba', 'legendary')
+    "
+  />
+  <img
+    src="services/icons/erba.webp"
+    alt="icon"
+    [class]="iconClass"
+    (click)="
+      attributeChanger('erba', 'fuoco', 'vento', 'terra', 'acqua', 'legendary')
+    "
+  />
+  <img
+    src="services/icons/legendary.webp"
+    alt="icon"
+    [class]="iconClass"
+    (click)="
+      attributeChanger('legendary', 'fuoco', 'vento', 'terra', 'erba', 'acqua')
+    "
+  />
+</section>
