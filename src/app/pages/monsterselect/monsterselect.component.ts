@@ -32,7 +32,7 @@ ngOnInit() {
 
 
 
-  fetch("monsters.json").then(res => {
+  fetch("http://localhost:3000/monsters").then(res => {
     if (!res.ok) {
       throw new Error("Errore nella chiamata")
     }

@@ -1,4 +1,4 @@
-[
+{ "monsters":[
   {
       "id": 0,
       "name": "Lithogron",
@@ -1125,3 +1125,4 @@
       "icon": "services/icons/acqua.webp"
   }
 ]
+}
