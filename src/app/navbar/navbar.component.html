@@ -1,1 +1,12 @@
-<nav class="bg-black h-[8vh] text-white flex p-5 justify-center">works</nav>
+<nav
+  class="bg-black text-white text-[0.8rem] md:text-sm flex p-5 md:justify-center items-center gap-5 fixed w-full z-50 bg-opacity-50"
+>
+  <div>menu iniziale</div>
+  <div>regolamento</div>
+  <div>inizia partita</div>
+  <app-deck
+    [deckImg]="deckImg"
+    (toggleChange)="toggleChange($event)"
+  ></app-deck>
+</nav>
+<app-deckmodal [deckModal]="deckModal"></app-deckmodal>

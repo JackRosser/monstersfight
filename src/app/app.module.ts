@@ -8,6 +8,8 @@ import { MonsterselectComponent } from './pages/monsterselect/monsterselect.comp
 import { PreviewsComponent } from './pages/previews/previews.component';
 import { MainmonsterComponent } from './pages/previews/mainmonster/mainmonster.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DeckComponent } from './navbar/deck/deck.component';
+import { DeckmodalComponent } from './modals/deckmodal/deckmodal.component';
 
 const routes: Route[] = [
   {
@@ -23,7 +25,9 @@ const routes: Route[] = [
     MonsterselectComponent,
     PreviewsComponent,
     MainmonsterComponent,
-    NavbarComponent
+    NavbarComponent,
+    DeckComponent,
+    DeckmodalComponent
   ],
   imports: [
     BrowserModule,
