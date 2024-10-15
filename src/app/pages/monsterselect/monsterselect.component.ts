@@ -16,11 +16,16 @@ export class MonsterselectComponent {
 monstersList!: iMonsters[]
 monsterListActive!: iMonsters
 monsterBg!: any
+borderActive: string = ""
 
 monsterHover(monster: iMonsters): void {
 this.monsterListActive = monster
 this.monsterBg = `background-image: url(${this.monsterListActive.img})`
 
+}
+
+activeBorder(): void {
+this.borderActive = "border: 2px solid yellow"
 }
 
 ngOnInit() {
