@@ -1,5 +1,5 @@
+import { iMonsters } from './../models/i-monsters';
 import { Injectable } from '@angular/core';
-import { iMonsters } from '../models/i-monsters';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +65,10 @@ deleteCard(id:number):Promise<iMonsters> {
     if(!res) {
       throw new Error("ERRORE NELLA CHIAMATA")
     } return res.json()}).catch(err => {console.log("ERRORE" + err)})
+}
+
+getDeck():Promise<iMonsters[]> {
+return <Promise<iMonsters[]>> fetch(this.url).then(res => res.json())
 }
 
 }

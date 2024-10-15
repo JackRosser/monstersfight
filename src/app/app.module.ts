@@ -10,6 +10,7 @@ import { MainmonsterComponent } from './pages/previews/mainmonster/mainmonster.c
 import { NavbarComponent } from './navbar/navbar.component';
 import { DeckComponent } from './navbar/deck/deck.component';
 import { DeckmodalComponent } from './modals/deckmodal/deckmodal.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Route[] = [
   {
@@ -32,7 +33,8 @@ const routes: Route[] = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

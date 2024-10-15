@@ -1,3 +1,4 @@
+import { GlobalfetchService } from '../../services/globalfetch.service';
 import { iMonsters } from './../../models/i-monsters';
 import { Component } from '@angular/core';
 
@@ -9,6 +10,10 @@ import { Component } from '@angular/core';
 export class MonsterselectComponent {
 
 
+// QUI RICHIAMO LA CRUD DENTRO A GLOBAL FETCH SERVICE
+  constructor(private globalFetch:GlobalfetchService) {
+
+}
 
 // AUDIO
 // musicMenu: string = "public/services/musics/MenuMusic.mp3"
@@ -28,18 +33,10 @@ activeBorder(): void {
 this.borderActive = "border: 2px solid yellow"
 }
 
-ngOnInit() {
-
-
-
-  fetch("http://localhost:3000/monsters").then(res => {
-    if (!res.ok) {
-      throw new Error("Errore nella chiamata")
-    }
-    return res.json()
-  }).then((data:iMonsters[]) => {
+// CREO UNA FUNZIONE ANDANDOMI A PRENDERE IL METODO DEFINITO IN GLOBAL FETCH SERVICE
+showAllCards() {
+  this.globalFetch.getAllMonsters().then((data:iMonsters[]) => {
     // GENERAZIONE DELLA LISTA DEI MOSTRI IN ORDINE ALFABETICO
-    console.log(data);
 
     this.monstersList = data.sort((a, b) => {
       if (a.name < b.name) {
@@ -57,17 +54,17 @@ this.monsterListActive = this.monstersList[0]
 this.monsterBg = `background-image: url(${this.monsterListActive.img})`
  }
 
-  }).catch(err => {
-    console.log("ERRORE:", err);
-
   })
+}
 
-
-
-
+inputDeck(card: iMonsters): void {
+  localStorage.setItem("card", JSON.stringify(card));
 }
 
 
+ngOnInit() {
+  this.showAllCards()
+}
 
 
 }
