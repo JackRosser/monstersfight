@@ -1,0 +1,18 @@
+/* La parte generale della scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Larghezza della scrollbar */
+}
+
+/* La parte che si muove (il "pollice") */
+::-webkit-scrollbar-thumb {
+  background-color: greenyellow; /* Colore del pollice */
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px rgb(0, 187, 28);
+
+  border: 2px solid transparent; /* Spessore del bordo trasparente */
+}
+
+/* Parte di sfondo della scrollbar */
+::-webkit-scrollbar-track {
+  background: rgb(73, 73, 73); /* Colore dello sfondo della scrollbar */
+}

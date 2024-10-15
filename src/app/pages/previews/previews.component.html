@@ -4,7 +4,6 @@
     class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl"
     [style]="borderActive"
     (mouseover)="monsterHover(monster)"
-    (click)="activeBorder()"
   >
     <h2
       class="text-[0.8rem] md:text-sm absolute top-0 left-0 w-full text-center rounded-tl-3xl rounded-tr-3xl backdrop-blur-[1px] bg-black bg-opacity-40 text-white"
@@ -18,3 +17,5 @@
     <img [attr.src]="monstersList[i].img" class="rounded-3xl shadow-md" />
   </li>
 </ul>
+
+<!-- (click)="activeBorder()" -->

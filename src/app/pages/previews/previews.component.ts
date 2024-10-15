@@ -11,5 +11,5 @@ export class PreviewsComponent {
 @Input() monstersList!: any;
 @Input() monsterHover!: (monster: iMonsters) => void
 @Input() borderActive!: string
-@Input() activeBorder!: () string
+// @Input() activeBorder!: () string
 }
