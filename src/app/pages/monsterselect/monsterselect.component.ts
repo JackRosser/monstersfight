@@ -57,9 +57,8 @@ this.monsterBg = `background-image: url(${this.monsterListActive.img})`
   })
 }
 
-inputDeck(card: iMonsters): void {
-  localStorage.setItem("card", JSON.stringify(card));
-}
+
+
 
 
 ngOnInit() {

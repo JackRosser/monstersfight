@@ -8,8 +8,12 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class PreviewsComponent {
 
-@Input() monstersList!: any;
+@Input() monstersList!: iMonsters[];
 @Input() monsterHover!: (monster: iMonsters) => void
 @Input() borderActive!: string
-// @Input() activeBorder!: () string
+@Input() cardInDeck!: iMonsters
+@Input() inputDeck!: (card: iMonsters) => void
+
+
+
 }

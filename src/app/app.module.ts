@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DeckComponent } from './navbar/deck/deck.component';
 import { DeckmodalComponent } from './modals/deckmodal/deckmodal.component';
 import { FormsModule } from '@angular/forms';
+import { YellowboxDirective } from './directives/yellowbox.directive';
 
 const routes: Route[] = [
   {
@@ -28,7 +29,8 @@ const routes: Route[] = [
     MainmonsterComponent,
     NavbarComponent,
     DeckComponent,
-    DeckmodalComponent
+    DeckmodalComponent,
+    YellowboxDirective
   ],
   imports: [
     BrowserModule,
