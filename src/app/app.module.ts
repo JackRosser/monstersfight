@@ -7,6 +7,7 @@ import { Route, RouterModule } from '@angular/router';
 import { MonsterselectComponent } from './pages/monsterselect/monsterselect.component';
 import { PreviewsComponent } from './pages/previews/previews.component';
 import { MainmonsterComponent } from './pages/previews/mainmonster/mainmonster.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Route[] = [
   {
@@ -21,7 +22,8 @@ const routes: Route[] = [
     AppComponent,
     MonsterselectComponent,
     PreviewsComponent,
-    MainmonsterComponent
+    MainmonsterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
