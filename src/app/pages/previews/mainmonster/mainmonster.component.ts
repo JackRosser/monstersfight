@@ -1,4 +1,6 @@
+import { iMonsters } from './../../../models/i-monsters';
 import { Component, input, Input } from '@angular/core';
+import { AllcardsService } from '../../../services/allcards.service';
 
 @Component({
   selector: 'app-mainmonster',
@@ -6,7 +8,17 @@ import { Component, input, Input } from '@angular/core';
   styleUrl: './mainmonster.component.scss'
 })
 export class MainmonsterComponent {
-@Input() monstersList!: any
+
+constructor(private cardsList:AllcardsService) {}
 @Input() monsterBg!: any
 @Input() monsterListActive!:any
+
+monstersList!: iMonsters[]
+
+ngOnInit() {
+  this.cardsList.allCards$.subscribe(list => {
+    this.monstersList = list
+  })
+}
+
 }

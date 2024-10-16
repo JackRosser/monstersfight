@@ -9,20 +9,12 @@
     [style]="monsterBg"
   >
     <!--img grande a sinistra  -->
-    <app-mainmonster
-      [monstersList]="monstersList"
-      [monsterBg]="monsterBg"
-      [monsterListActive]="monsterListActive"
-    ></app-mainmonster>
+    <app-mainmonster></app-mainmonster>
   </div>
   <div
     class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-2/3 p-3 md:px-5 overflow-auto flex flex-col items-center gap-y-5"
   >
     <!-- previews dei mostri sulla destra -->
-    <app-previews
-      [monstersList]="monstersList"
-      [monsterHover]="monsterHover.bind(this)"
-      (listaModificata)="showPersonalizedCards($event)"
-    ></app-previews>
+    <app-previews></app-previews>
   </div>
 </section>

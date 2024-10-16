@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iMonsters } from '../../models/i-monsters';
+import { AllcardsService } from '../../services/allcards.service';
 
 @Component({
   selector: 'app-previews',
@@ -8,20 +9,21 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class PreviewsComponent {
 
-@Input() monstersList!: iMonsters[];
+constructor(private list:AllcardsService) {}
+
 @Input() monsterHover!: (monster: iMonsters) => void
 @Input() borderActive!: string
-@Input() cardInDeck!: iMonsters
 
-@Output() listaModificata = new EventEmitter<iMonsters[]>()
+monstersList!: iMonsters[]
 
+ngOnInit() {
 
-monsterFilter!: iMonsters[]
+this.list.allCards$.subscribe(cardlist => {
+this.monstersList = cardlist
 
-changeMonsterFilter(elemento:string) {
-  this.monsterFilter = this.monstersList.filter(card => card.icon === elemento)
-  this.listaModificata.emit(this.monsterFilter)
+})
 
 }
+
 
 }
