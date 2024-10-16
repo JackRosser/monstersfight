@@ -1,9 +1,11 @@
+<app-navbar></app-navbar>
 <section *ngIf="monstersList" class="flex w-full h-full flex-col lg:flex-row">
   <!-- mostro principale a sinistra -->
   <div
     class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-1/3 bg-cover bg-center md:bg-top lg:bg-center flex flex-col justify-end lg:justify-center visibile"
     [style]="monsterBg"
   >
+    <!--img grande a sinistra  -->
     <app-mainmonster
       [monstersList]="monstersList"
       [monsterBg]="monsterBg"
@@ -13,11 +15,11 @@
   <div
     class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-2/3 p-3 md:px-5 overflow-auto flex flex-col items-center gap-y-5"
   >
-    <app-selectattribute></app-selectattribute>
-    <!-- previews -->
+    <!-- previews dei mostri sulla destra -->
     <app-previews
       [monstersList]="monstersList"
       [monsterHover]="monsterHover.bind(this)"
     ></app-previews>
   </div>
 </section>
+<!-- (attributoMostrato)="showImageSelected()" -->

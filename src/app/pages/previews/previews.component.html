@@ -1,3 +1,4 @@
+<app-selectattribute></app-selectattribute>
 <ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3">
   <li
     *ngFor="let monster of monstersFilter; let i = index"
@@ -19,5 +20,3 @@
     <img [attr.src]="monstersFilter[i].img" class="rounded-3xl shadow-md" />
   </li>
 </ul>
-
-<!-- (click)="activeBorder()" -->

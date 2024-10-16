@@ -13,11 +13,13 @@ import { DeckmodalComponent } from './modals/deckmodal/deckmodal.component';
 import { FormsModule } from '@angular/forms';
 import { YellowboxDirective } from './directives/yellowbox.directive';
 import { SelectattributeComponent } from './pages/selectattribute/selectattribute.component';
+import { MenuinizialeComponent } from './pages/menuiniziale/menuiniziale.component';
 
 const routes: Route[] = [
   {
     path: "",
-    component: MonsterselectComponent
+    component: MenuinizialeComponent
+    // component: MonsterselectComponent
 
   }
 ]
@@ -32,7 +34,8 @@ const routes: Route[] = [
     DeckComponent,
     DeckmodalComponent,
     YellowboxDirective,
-    SelectattributeComponent
+    SelectattributeComponent,
+    MenuinizialeComponent
   ],
   imports: [
     BrowserModule,
