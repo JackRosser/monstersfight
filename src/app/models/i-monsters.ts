@@ -12,5 +12,6 @@ export interface iMonsters {
   stamina: number,
   img: string,
   icon: string,
+  locked: boolean
 }
 
