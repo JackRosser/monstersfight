@@ -1,8 +1,9 @@
 <div
   class="backdrop-blur-sm shadow-md border-t md:border-b bg-black bg-opacity-30 w-full flex p-5 font-medium text-white flex-col justify-center gap-2"
+  *ngIf="monstersList"
 >
   <img
-    [attr.src]="monsterActive.icon"
+    [src]="monsterActive.icon"
     alt="icon"
     class="absolute rounded-full max-h-20 top-0 right-[0.5rem] -translate-y-[50%] border shadow-sm z-20"
   />

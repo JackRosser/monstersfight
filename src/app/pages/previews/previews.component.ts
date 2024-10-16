@@ -13,13 +13,19 @@ constructor(private list:AllcardsService) {}
 
 monstersList!: iMonsters[]
 bgCheCambia!: string
+mostroAttivo: iMonsters = {} as iMonsters
 @Output() nuovoBg = new EventEmitter<string>()
+@Output() mostroVisualizzato = new EventEmitter<iMonsters>()
 
-monsterHover(monster:iMonsters) {
-this.bgCheCambia = monster.img
-this.nuovoBg.emit(this.bgCheCambia)
-
+monsterHover(monster: iMonsters) {
+  if (monster) {  // Aggiungi un controllo
+    this.bgCheCambia = monster.img;
+    this.mostroAttivo = monster;
+    this.nuovoBg.emit(this.bgCheCambia);
+    this.mostroVisualizzato.emit(this.mostroAttivo);
+  }
 }
+
 
 ngOnInit() {
 
@@ -32,7 +38,4 @@ this.monstersList = cardlist
 
 
 }
-// monsterHover(monster: iMonsters): void {
-//   this.monsterActive = monster
-//   this.monsterBg = `background-image: url(${this.monsterActive.img})`
-// }
+

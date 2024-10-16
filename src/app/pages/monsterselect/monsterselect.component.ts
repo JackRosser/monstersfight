@@ -13,9 +13,17 @@ constructor(private list:AllcardsService) {}
 
 monstersList!: iMonsters[]
 monsterBg!: string
+mostroAttivo!: iMonsters
 
 inputBg(nuovoBg:string):void {
-  this.monsterBg = `background-image: url(${nuovoBg})`
+this.monsterBg = `background-image: url(${nuovoBg})`
+
+
+}
+
+mostroVisualizzato(mostro:iMonsters) {
+  this.mostroAttivo = mostro
+
 }
 
 ngOnInit() {
@@ -23,7 +31,8 @@ ngOnInit() {
     this.monstersList = cards
     this.monsterBg = `background-image: url(${this.monstersList[0].img})`
 
-  })
+
+})
 }
 
 

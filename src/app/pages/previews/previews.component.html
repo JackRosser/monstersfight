@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center gap-5">
+<div *ngIf="monstersList" class="flex flex-col items-center gap-5">
   <app-selectattribute></app-selectattribute>
   <ul
     class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3"
@@ -15,9 +15,10 @@
         {{ monstersList[i].name }}
       </h2>
       <img
-        [attr.src]="monstersList[i].icon"
+        [attr.src]="monster?.icon"
         class="absolute max-h-[2rem] md:max-h-[3.5rem] end-0 bottom-0 rounded-br-3xl rounded-tl-3xl"
       />
+
       <img [attr.src]="monstersList[i].img" class="rounded-3xl shadow-md" />
     </li>
   </ul>
