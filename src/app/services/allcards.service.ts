@@ -8,21 +8,22 @@ import { GlobalfetchService } from './globalfetch.service';
 })
 export class AllcardsService {
 
-  // Creiamo un BehaviorSubject che inizialmente è vuoto (con un array vuoto)
+// MI CREO UN ARRAY VUOTO
   private allCardsSubject = new BehaviorSubject<iMonsters[]>([]);
   public allCards$: Observable<iMonsters[]> = this.allCardsSubject.asObservable();
 
-  constructor(private myJson: GlobalfetchService) {
-    this.loadAllCards(); // Carica tutte le carte all'inizio
-  }
-
-  // Metodo per caricare tutte le carte
+// METTO LE CARDS NELL'ARRAY
   private loadAllCards() {
     this.myJson.getAllCards().subscribe((allMonsters: iMonsters[]) => {
       const sortedMonsters = allMonsters.sort((a, b) => {
         return a.name.localeCompare(b.name);
       });
-      this.allCardsSubject.next(sortedMonsters); // Emettiamo i dati attraverso il BehaviorSubject
+      this.allCardsSubject.next(sortedMonsters);
     });
   }
+
+  constructor(private myJson: GlobalfetchService) {
+    this.loadAllCards(); // CARICO LE CARDS
+  }
+
 }

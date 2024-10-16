@@ -10,14 +10,14 @@ import { AllcardsService } from '../../../services/allcards.service';
 export class MainmonsterComponent {
 
 constructor(private cardsList:AllcardsService) {}
-@Input() monsterBg!: any
-@Input() monsterListActive!:any
 
 monstersList!: iMonsters[]
+monsterActive!: iMonsters
 
 ngOnInit() {
   this.cardsList.allCards$.subscribe(list => {
     this.monstersList = list
+    this.monsterActive = this.monstersList[0]
   })
 }
 

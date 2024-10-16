@@ -11,10 +11,15 @@ export class PreviewsComponent {
 
 constructor(private list:AllcardsService) {}
 
-@Input() monsterHover!: (monster: iMonsters) => void
-@Input() borderActive!: string
-
 monstersList!: iMonsters[]
+bgCheCambia!: string
+@Output() nuovoBg = new EventEmitter<string>()
+
+monsterHover(monster:iMonsters) {
+this.bgCheCambia = monster.img
+this.nuovoBg.emit(this.bgCheCambia)
+
+}
 
 ngOnInit() {
 
@@ -27,3 +32,7 @@ this.monstersList = cardlist
 
 
 }
+// monsterHover(monster: iMonsters): void {
+//   this.monsterActive = monster
+//   this.monsterBg = `background-image: url(${this.monsterActive.img})`
+// }

@@ -9,24 +9,23 @@ import { Component } from '@angular/core';
 })
 export class MonsterselectComponent {
 
-
-
 constructor(private list:AllcardsService) {}
 
-
 monstersList!: iMonsters[]
-monsterListActive!: iMonsters
 monsterBg!: string
-borderActive: string = ""
+
+inputBg(nuovoBg:string):void {
+  this.monsterBg = `background-image: url(${nuovoBg})`
+}
 
 ngOnInit() {
   this.list.allCards$.subscribe(cards => {
     this.monstersList = cards
+    this.monsterBg = `background-image: url(${this.monstersList[0].img})`
+
   })
 }
-// monsterHover(monster: iMonsters): void {
-// this.monsterListActive = monster
-// this.monsterBg = `background-image: url(${this.monsterListActive.img})`
+
 
 }
 
