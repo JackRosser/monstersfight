@@ -22,6 +22,7 @@
     <app-previews
       [monstersList]="monstersList"
       [monsterHover]="monsterHover.bind(this)"
+      (listaModificata)="showPersonalizedCards($event)"
     ></app-previews>
   </div>
 </section>

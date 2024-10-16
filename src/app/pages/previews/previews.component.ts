@@ -12,8 +12,16 @@ export class PreviewsComponent {
 @Input() monsterHover!: (monster: iMonsters) => void
 @Input() borderActive!: string
 @Input() cardInDeck!: iMonsters
-@Input() inputDeck!: (card: iMonsters) => void
+
+@Output() listaModificata = new EventEmitter<iMonsters[]>()
 
 
+monsterFilter!: iMonsters[]
+
+changeMonsterFilter(elemento:string) {
+  this.monsterFilter = this.monstersList.filter(card => card.icon === elemento)
+  this.listaModificata.emit(this.monsterFilter)
+
+}
 
 }

@@ -52,5 +52,8 @@ this.monsterBg = `background-image: url(${this.monsterListActive.img})`
   })
 }
 
+showPersonalizedCards(lista:iMonsters[]) {
+this.monstersList = lista
+}
 
 }
