@@ -1,1 +1,63 @@
-<div [class]="deckModal"></div>
+<ul *ngIf="deck.length > 0" [class]="deckModal">
+  <li
+    *ngFor="let card of deck; let i = index"
+    class="cursor-pointer flex flex-col items-center text-white border justify-between xl:justify-center relative"
+  >
+    <!-- inizio cestino -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-trash3-fill absolute top-3 left-3 text-red-600 bg-black rounded-full p-1 scale-[1.8] z-30 shadow-md hover:scale-[2.3] transition-transform duration-300"
+      viewBox="0 0 16 16"
+      (click)="deleteCard(deck[i].id)"
+    >
+      <path
+        d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"
+      />
+    </svg>
+    <!-- fine cestino -->
+    <img
+      [src]="deck[i].img"
+      alt="immagine"
+      class="w-full hover:brightness-[1.2]"
+    />
+    <div class="flex flex-col p-3 gap-3">
+      <div class="text-center flex justify-center gap-x-5">
+        <p
+          before="ATK"
+          class="before:content-[attr(before)] before:font-medium before:italic"
+        >
+          {{ deck[i].atk }}
+        </p>
+        <p
+          before="DEF"
+          class="before:content-[attr(before)] before:font-medium before:italic"
+        >
+          {{ deck[i].def }}
+        </p>
+      </div>
+      <div class="text-center flex justify-center gap-x-5">
+        <p
+          before="HP"
+          class="before:content-[attr(before)] before:font-medium before:italic"
+        >
+          {{ deck[i].hp }}
+        </p>
+        <p
+          before="STA"
+          class="before:content-[attr(before)] before:font-medium before:italic"
+        >
+          {{ deck[i].stamina }}
+        </p>
+        <p
+          before="SPD"
+          class="before:content-[attr(before)] before:font-medium before:italic"
+        >
+          {{ deck[i].speed }}
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>

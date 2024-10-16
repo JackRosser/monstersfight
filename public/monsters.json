@@ -1201,47 +1201,5 @@
       "locked": false
     }
   ],
-  "deck": [
-    {
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 45,
-      "name": "Aeris",
-      "type": "vento",
-      "description": "Un essere leggero come l'aria, capace di spostarsi con una velocità fulminea tra le correnti.",
-      "principale": "speed",
-      "debolezza": "hp",
-      "hp": 20,
-      "atk": 80,
-      "def": 30,
-      "speed": 145,
-      "stamina": 85,
-      "img": "monsters/vento/482ef84b-c814-423f-ad19-a59edd6dbe4a.webp",
-      "icon": "services/icons/vento.webp",
-      "locked": false
-    },
-    {
-      "id": 56,
-      "name": "Antik",
-      "type": "legendary",
-      "description": "Un drago antico e maestoso, venerato come un dio da chiunque lo incontri.",
-      "principale": "atk",
-      "debolezza": "speed",
-      "hp": 115,
-      "atk": 125,
-      "def": 40,
-      "speed": 5,
-      "stamina": 75,
-      "img": "monsters/legendary/e7e1b174-6a88-4ecd-8381-e790eb3cdfc6.webp",
-      "icon": "services/icons/legendary.webp",
-      "locked": false
-    }
-  ]
+  "deck": []
 }
