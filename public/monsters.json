@@ -254,9 +254,9 @@
         "speed": 30,
         "stamina": 85,
         "img": "monsters/erba/62dc8a57-628c-4fd4-a11c-6744cd39d3d9.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false
+      },
     {
         "id": 16,
         "name": "Verdalis",
@@ -270,9 +270,8 @@
         "speed": 85,
         "stamina": 40,
         "img": "monsters/erba/4a972265-0360-44bb-bc8c-f4273ffd6a06.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 17,
         "name": "Mossfang",
@@ -286,9 +285,8 @@
         "speed": 50,
         "stamina": 45,
         "img": "monsters/erba/5956863b-a4cd-4b9a-a57f-52611951ff4d.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 18,
         "name": "Bramblehorn",
@@ -302,9 +300,8 @@
         "speed": 60,
         "stamina": 40,
         "img": "monsters/erba/86efb502-e407-4f54-8df9-c513ff54b6fe.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 19,
         "name": "Sylvaris",
@@ -318,9 +315,8 @@
         "speed": 70,
         "stamina": 35,
         "img": "monsters/erba/d9bd79e3-c251-4f81-b294-ed3af8aafc54.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 20,
         "name": "Vineclaw",
@@ -334,9 +330,8 @@
         "speed": 80,
         "stamina": 35,
         "img": "monsters/erba/d3f7c862-9ada-4f19-ac20-76b027115f77.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 21,
         "name": "Floraspike",
@@ -350,9 +345,8 @@
         "speed": 30,
         "stamina": 50,
         "img": "monsters/erba/55dd4d4e-f44e-450e-b1a8-519e0c931782.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 22,
         "name": "Thornroot",
@@ -366,9 +360,8 @@
         "speed": 25,
         "stamina": 80,
         "img": "monsters/erba/194c1fc7-2a4b-42b5-a115-5cfb50206a7b.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 23,
         "name": "Greenstalker",
@@ -382,9 +375,8 @@
         "speed": 55,
         "stamina": 45,
         "img": "monsters/erba/207fee25-27a4-4e5b-82c6-e6dd440bc42b.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 24,
         "name": "Petalbane",
@@ -398,9 +390,8 @@
         "speed": 65,
         "stamina": 80,
         "img": "monsters/erba/5d0e56eb-5a61-43a4-bf65-342f199d7493.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 25,
         "name": "Wildgrove",
@@ -414,9 +405,8 @@
         "speed": 80,
         "stamina": 85,
         "img": "monsters/erba/e16c34ee-e58e-4574-8f6a-95c731a1bded.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 26,
         "name": "Feralvine",
@@ -430,9 +420,8 @@
         "speed": 100,
         "stamina": 60,
         "img": "monsters/erba/1a4f10c5-15d7-402b-b9ef-fd1bc195022a.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 27,
         "name": "Lushrend",
@@ -446,9 +435,8 @@
         "speed": 70,
         "stamina": 85,
         "img": "monsters/erba/6e45b374-df5d-43d4-99ef-e6a83569a634.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 28,
         "name": "Ivyshade",
@@ -462,9 +450,8 @@
         "speed": 40,
         "stamina": 100,
         "img": "monsters/erba/7fdb8ec9-4926-4e3d-87a0-a039b566136d.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 29,
         "name": "Bloomclaw",
@@ -478,9 +465,8 @@
         "speed": 60,
         "stamina": 90,
         "img": "monsters/erba/dc9a30e0-2094-4f6b-86e5-85b55c9859c5.webp",
-        "icon": "services/icons/erba.webp"
-
-"locked": false    ,  },
+        "icon": "services/icons/erba.webp",
+        "locked": false},
     {
         "id": 30,
         "name": "Ignisfang",
@@ -894,8 +880,8 @@
         "speed": 20,
         "stamina": 70,
         "img": "monsters/legendary/16330f30-f137-4a8e-ba53-c058d84b9fc7.webp",
-        "icon": "services/icons/legendary.w,
-        "locked": falseebp"
+        "icon": "services/icons/legendary.webp",
+        "locked": false
     },
     {
         "id": 56,
@@ -910,8 +896,8 @@
         "speed": 5,
         "stamina": 75,
         "img": "monsters/legendary/e7e1b174-6a88-4ecd-8381-e790eb3cdfc6.webp",
-        "icon": "services/icons/legendary.w,
-        "locked": falseebp"
+        "icon": "services/icons/legendary.webp",
+        "locked": false
     },
     {
         "id": 57,
@@ -926,8 +912,8 @@
         "speed": 25,
         "stamina": 70,
         "img": "monsters/legendary/30a303a9-282a-4e22-a4e1-c51f2423ac52.webp",
-        "icon": "services/icons/legendary.w,
-        "locked": falseebp"
+        "icon": "services/icons/legendary.webp",
+        "locked": false
     },
     {
         "id": 58,
@@ -942,8 +928,8 @@
         "speed": 45,
         "stamina": 65,
         "img": "monsters/legendary/91b1780b-21fb-4262-8186-3225b0e04872.webp",
-        "icon": "services/icons/legendary.w,
-        "locked": falseebp"
+        "icon": "services/icons/legendary.webp",
+        "locked": false
     },
     {
         "id": 59,
@@ -958,8 +944,8 @@
         "speed": 45,
         "stamina": 65,
         "img": "monsters/legendary/4c01b5f3-720e-412d-8747-f48335fdc3af.webp",
-        "icon": "services/icons/legendary.w,
-        "locked": falseebp"
+        "icon": "services/icons/legendary.webp",
+        "locked": false
     },
     {
         "id": 60,

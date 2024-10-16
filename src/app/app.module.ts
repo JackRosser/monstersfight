@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { YellowboxDirective } from './directives/yellowbox.directive';
 import { SelectattributeComponent } from './pages/selectattribute/selectattribute.component';
 import { MenuinizialeComponent } from './pages/menuiniziale/menuiniziale.component';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 const routes: Route[] = [
   {
@@ -47,7 +48,7 @@ const routes: Route[] = [
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
