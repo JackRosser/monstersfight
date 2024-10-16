@@ -1,22 +1,26 @@
-<app-selectattribute></app-selectattribute>
-<ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3">
-  <li
-    *ngFor="let monster of monstersFilter; let i = index"
-    appYellowbox
-    class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl active:scale-90 active:grayscale transition-transform duration-[300ms]"
-    [style]="borderActive"
-    (mouseover)="monsterHover(monster)"
-    (click)="inputDeck(monster)"
+<div class="flex flex-col items-center gap-5">
+  <app-selectattribute></app-selectattribute>
+  <ul
+    class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3"
   >
-    <h2
-      class="text-[0.8rem] md:text-sm absolute top-0 left-0 w-full text-center rounded-tl-3xl rounded-tr-3xl backdrop-blur-[1px] bg-black bg-opacity-40 text-white"
+    <li
+      *ngFor="let monster of monstersList; let i = index"
+      appYellowbox
+      class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl active:scale-90 active:grayscale transition-transform duration-[300ms]"
+      [style]="borderActive"
+      (mouseover)="monsterHover(monster)"
+      (click)="inputDeck(monster)"
     >
-      {{ monstersFilter[i].name }}
-    </h2>
-    <img
-      [attr.src]="monstersFilter[i].icon"
-      class="absolute max-h-[2rem] md:max-h-[3.5rem] end-0 bottom-0 rounded-br-3xl rounded-tl-3xl"
-    />
-    <img [attr.src]="monstersFilter[i].img" class="rounded-3xl shadow-md" />
-  </li>
-</ul>
+      <h2
+        class="text-[0.8rem] md:text-sm absolute top-0 left-0 w-full text-center rounded-tl-3xl rounded-tr-3xl backdrop-blur-[1px] bg-black bg-opacity-40 text-white"
+      >
+        {{ monstersList[i].name }}
+      </h2>
+      <img
+        [attr.src]="monstersList[i].icon"
+        class="absolute max-h-[2rem] md:max-h-[3.5rem] end-0 bottom-0 rounded-br-3xl rounded-tl-3xl"
+      />
+      <img [attr.src]="monstersList[i].img" class="rounded-3xl shadow-md" />
+    </li>
+  </ul>
+</div>

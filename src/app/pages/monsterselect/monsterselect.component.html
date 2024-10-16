@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
-<section *ngIf="monstersList" class="flex w-full h-full flex-col lg:flex-row">
+<section
+  *ngIf="monstersList"
+  class="flex w-full h-full flex-col lg:flex-row appear"
+>
   <!-- mostro principale a sinistra -->
   <div
     class="w-full h-1/2 lg:w-1/2 lg:h-full xl:w-1/3 bg-cover bg-center md:bg-top lg:bg-center flex flex-col justify-end lg:justify-center visibile"
@@ -22,4 +25,3 @@
     ></app-previews>
   </div>
 </section>
-<!-- (attributoMostrato)="showImageSelected()" -->
