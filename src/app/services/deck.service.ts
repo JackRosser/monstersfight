@@ -36,13 +36,32 @@ export class DeckService {
   }
 
   addCardToDeck(newCard: iMonsters): Observable<iMonsters> {
+    const currentDeck = this.deckSubject.getValue();
+
+    // Controlla se il deck ha già 6 carte
+    if (currentDeck.length >= 6) {
+      return new Observable(observer => {
+        observer.error('Il deck può contenere al massimo 6 carte.');
+      });
+    }
+
+    // Controlla se la carta è già presente nel deck
+    const cardExists = currentDeck.some(card => card.id === newCard.id);
+    if (cardExists) {
+      return new Observable(observer => {
+        observer.error('La carta è già presente nel deck.');
+      });
+    }
+
     return this.chiamata.post<iMonsters>(this.deckUrl, newCard).pipe(
       tap((addedCard: iMonsters) => {
-        const updatedDeck = [...this.deckSubject.getValue(), addedCard];  // Aggiungi la nuova carta all'array esistente
+        const updatedDeck = [...currentDeck, addedCard];  // Aggiungi la nuova carta all'array esistente
         this.deckSubject.next(updatedDeck);  // Aggiorna il BehaviorSubject con la nuova carta
       })
     );
   }
+
+
 
 
 }

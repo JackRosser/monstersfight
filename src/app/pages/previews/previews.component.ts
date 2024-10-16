@@ -32,14 +32,13 @@ newCard!: iMonsters
 
 cardInDeck(monster: iMonsters) {
   this.deck.addCardToDeck(monster).subscribe({
-    next: (response) => {
-      console.log('Carta aggiunta con successo', response); // Successo
-    },
+
     error: (error) => {
-      alert("Errore: " + error.message); // Gestione dell'errore
+      alert("Errore: " + error); // Gestione dell'errore
     }
   });
 }
+
 
 
 
