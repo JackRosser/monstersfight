@@ -6,7 +6,7 @@
     <li
       *ngFor="let monster of monstersList; let i = index"
       appYellowbox
-      class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl active:scale-90 active:grayscale transition-transform duration-[300ms]"
+      class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl active:scale-90 active:opacity-50 transition-transform duration-[300ms]"
       [style]="borderActive"
       (mouseover)="monsterHover(monster)"
       (click)="inputDeck(monster)"
