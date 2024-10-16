@@ -8,6 +8,10 @@ import { GlobalfetchService } from './globalfetch.service';
 })
 export class AllcardsService {
 
+  constructor(private myJson: GlobalfetchService) {
+    this.loadAllCards(); // CARICO LE CARDS
+  }
+
 // MI CREO UN ARRAY VUOTO
   private allCardsSubject = new BehaviorSubject<iMonsters[]>([]);
   public allCards$: Observable<iMonsters[]> = this.allCardsSubject.asObservable();
@@ -22,8 +26,6 @@ export class AllcardsService {
     });
   }
 
-  constructor(private myJson: GlobalfetchService) {
-    this.loadAllCards(); // CARICO LE CARDS
-  }
+
 
 }

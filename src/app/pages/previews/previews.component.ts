@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iMonsters } from '../../models/i-monsters';
 import { AllcardsService } from '../../services/allcards.service';
+import { DeckService } from '../../services/deck.service';
 
 @Component({
   selector: 'app-previews',
@@ -9,7 +10,8 @@ import { AllcardsService } from '../../services/allcards.service';
 })
 export class PreviewsComponent {
 
-constructor(private list:AllcardsService) {}
+constructor(private list:AllcardsService,
+  private deck:DeckService) {}
 
 monstersList!: iMonsters[]
 bgCheCambia!: string
@@ -25,6 +27,21 @@ monsterHover(monster: iMonsters) {
     this.mostroVisualizzato.emit(this.mostroAttivo);
   }
 }
+
+newCard!: iMonsters
+
+cardInDeck(monster: iMonsters) {
+  this.deck.addCardToDeck(monster).subscribe({
+    next: (response) => {
+      console.log('Carta aggiunta con successo', response); // Successo
+    },
+    error: (error) => {
+      alert("Errore: " + error.message); // Gestione dell'errore
+    }
+  });
+}
+
+
 
 
 ngOnInit() {

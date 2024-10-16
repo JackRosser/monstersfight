@@ -11,15 +11,17 @@ export class MainmonsterComponent {
 
 constructor(private cardsList:AllcardsService) {}
 
+
+// ASPETTO CHE MOSTROATTIVO CI SIA PRIMA di CAMBIARE MONSTERACTIVE
+
+monstersList!: iMonsters[]
+monsterActive!: iMonsters
+
 @Input() set mostroAttivo(value: iMonsters) {
   if (value) {
     this.monsterActive = value;
   }
 }
-
-
-monstersList!: iMonsters[]
-monsterActive!: iMonsters
 
 ngOnInit() {
   this.cardsList.allCards$.subscribe(list => {
