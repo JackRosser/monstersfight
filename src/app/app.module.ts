@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Route, RouterModule } from '@angular/router';
@@ -21,6 +20,10 @@ const routes: Route[] = [
     component: MenuinizialeComponent
     // component: MonsterselectComponent
 
+  },
+  {
+    path: "card-selector",
+    component: MonsterselectComponent
   }
 ]
 
@@ -35,7 +38,8 @@ const routes: Route[] = [
     DeckmodalComponent,
     YellowboxDirective,
     SelectattributeComponent,
-    MenuinizialeComponent
+    MenuinizialeComponent,
+
   ],
   imports: [
     BrowserModule,
