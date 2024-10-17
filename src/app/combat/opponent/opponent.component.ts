@@ -37,7 +37,7 @@ export class OpponentComponent {
     let randomIndex:number = Math.floor(Math.random() * allCards.length)
     this.opponentCards = allCards
     this.monsterActive = this.opponentCards[randomIndex]
-    this.background = `background: url(${this.monsterActive.sfondo}); background-position: center; background-size: cover`
+    this.background = `url(${this.monsterActive.sfondo})`
 
   })
   }

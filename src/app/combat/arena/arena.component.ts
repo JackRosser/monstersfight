@@ -10,6 +10,12 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class ArenaComponent {
 
+constructor(private chiamataPlayer:DeckService, private chiamataOpponent:AllcardsService) {}
+
+playerCards:iMonsters[] = []
+opponentCards:iMonsters[] = []
+
+
   //ANIMAZIONE DI COMBATTIMENTO
   battleAnimationPlayer: string = "none";
   battleAnimationOpponent: string = "none";
@@ -29,5 +35,18 @@ export class ArenaComponent {
       }
     }, 10);
   }
+
+ngOnInit(){
+
+this.chiamataPlayer.deck$.subscribe(deckImportato => {
+  this.playerCards = deckImportato
+
+})
+
+this.chiamataOpponent.allCards$.subscribe(cardsOpponent => {
+  this.opponentCards = cardsOpponent
+})
+
+}
 
 }

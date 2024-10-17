@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DeckService } from '../../services/deck.service';
+import { Component, EventEmitter, Input, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { iMonsters } from '../../models/i-monsters';
 
 @Component({
@@ -9,9 +8,6 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class PlayerComponent {
 
-constructor(private chiamataDeck:DeckService) {}
-
-deckPlayer: iMonsters[] = []
 
 monsterActive!: iMonsters
 background:string = ""
@@ -22,6 +18,7 @@ stamina:string = `width: ${this.staminaCounter}%`
 
 @Input() battleAnimationPlayer!: string
 @Input() toggleAnimation!: boolean
+@Input() playerCard: iMonsters[] = []
 
 @Output() battleAnimationEmit = new EventEmitter<{animation: string, toggle: boolean}>();
 
@@ -36,13 +33,12 @@ battleOutput() {
 
 
 
-ngOnInit() {
-this.chiamataDeck.deck$.subscribe(deckGlobal => {
-  this.deckPlayer = deckGlobal
-  this.monsterActive = this.deckPlayer[0]
-  this.background = `url(${this.monsterActive.sfondo})`
-
-})
+ngOnChanges(changes: SimpleChanges) {
+  if (changes['playerCard'] && this.playerCard.length > 0) {
+    this.monsterActive = this.playerCard[0];
+    this.background = `url(${this.monsterActive.sfondo})`;
+  }
 }
+
 
 }
