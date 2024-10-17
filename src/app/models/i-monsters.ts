@@ -13,5 +13,6 @@ export interface iMonsters {
   img: string,
   icon: string,
   locked: boolean
+  indeck: boolean
 }
 

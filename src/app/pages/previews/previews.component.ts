@@ -35,12 +35,10 @@ toggleCardInDeck: boolean = false;
 alertMostrato: string = "absolute bg-black p-5 w-2/3 md:w-1/4 lg:top-[5rem] text-white rounded-[10px] z-50 flex flex-col items-center gap-5 border shadow-sm";
 alert: string = "hidden";
 alertAttivo: boolean = false;
-// GESTIONE BOx gIaLLO
-yellowBoxActive: boolean = false;
+
 
 
 cardInDeck(monster: iMonsters, cardId: number) {
-  this.yellowBoxActive = !this.yellowBoxActive
   if (!this.toggleCardInDeck) {
     this.toggleCardInDeck = true;
     this.deck.addCardToDeck(monster).subscribe({
