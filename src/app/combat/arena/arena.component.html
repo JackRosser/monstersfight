@@ -1,4 +1,9 @@
 <section class="relative">
+  <div
+    id="#finebattaglia"
+    class="bg-black absolute w-full h-full z-40 bg-opacity-0 transition-opacity duration-1000"
+  ></div>
+  <app-counters></app-counters>
   <video
     src="video/arena.mp4"
     muted
@@ -7,7 +12,7 @@
     class="h-[100vh] w-[100vw] object-cover object-center"
   ></video>
   <div
-    class="absolute top-[50%] -translate-y-[50%] w-full flex items-center justify-center p-10 gap-10 lg:h-[90vh] lg:gap-[10rem]"
+    class="absolute flex bottom-0 gap-3 md:gap-10 lg:gap-40 justify-center border w-full p-10 h-full items-center md:items-end"
   >
     <app-player
       [battleAnimationPlayer]="battleAnimationPlayer"

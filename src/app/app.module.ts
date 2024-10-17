@@ -17,6 +17,7 @@ import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common
 import { ArenaComponent } from './combat/arena/arena.component';
 import { PlayerComponent } from './combat/player/player.component';
 import { OpponentComponent } from './combat/opponent/opponent.component';
+import { CountersComponent } from './arena/counters/counters.component';
 
 const routes: Route[] = [
   {
@@ -50,6 +51,7 @@ const routes: Route[] = [
     ArenaComponent,
     PlayerComponent,
     OpponentComponent,
+    CountersComponent,
 
   ],
   imports: [
