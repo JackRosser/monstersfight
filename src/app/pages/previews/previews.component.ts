@@ -33,42 +33,36 @@ newCard!: iMonsters
 //GESTIONE TOGGLE
 
 alertMostrato: string = "absolute bg-black p-5 w-2/3 md:w-1/4 lg:top-[5rem] text-white rounded-[10px] z-50 flex flex-col items-center gap-5 border shadow-sm";
-alert: string = "hidden";
-alertAttivo: boolean = false;
 
+myDeck!: iMonsters[]
+alertToggle:boolean = false
 
+cardInDeck() {
+this.alertToggle = !this.alertToggle
+}
 
-cardInDeck(monster: iMonsters, cardId: number, inDeck:boolean) {
-
-  if (inDeck = true) {
-    this.deck.addCardToDeck(monster).subscribe({
-      error: () => {
-        this.alert = this.alertMostrato;
-        if (!this.alertAttivo) {
-          this.alertAttivo = true;
-        }
-      }
-    });
-  } else {
-    this.deck.deleteCardInDeck(cardId).subscribe();
+addCardInDeck(card:iMonsters) {
+  if(this.myDeck.length < 6) {
+  this.myDeck.push(card)}
+  else {
+    this.alertToggle = !this.alertToggle
   }
 }
 
-closeAlert(): void {
-  if (this.alertAttivo) {
-    this.alertAttivo = false;
-  }
-  this.alert = "hidden";
+closeAlert() {
+
 }
-
-
-
 
 ngOnInit() {
 
+// VISUALIZZO TUTTE LE CARTE
 this.list.allCards$.subscribe(cardlist => {
 this.monstersList = cardlist
-
+// VISUALIZZO LE CARTE DEL DECK
+this.deck.getDeck().subscribe(deckOttenuto => {
+this.myDeck = deckOttenuto
+})
+this.deck.deckService = this.myDeck
 })
 
 }

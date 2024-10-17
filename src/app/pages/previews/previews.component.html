@@ -1,6 +1,7 @@
-<div id="alert-troppe-carte" [class]="alert">
+<div id="alert-troppe-carte" [class]="alertMostrato">
   <p class="text-center">Non puoi inserire più di 6 carte nel deck</p>
   <button
+    *ngIf="alertToggle"
     class="border px-5 hover:bg-white hover:text-black"
     (click)="closeAlert()"
   >
@@ -16,10 +17,7 @@
       *ngFor="let monster of monstersList; let i = index"
       class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl active:scale-90 active:opacity-50 transition-transform duration-[300ms]"
       (mouseover)="monsterHover(monster)"
-      (click)="
-        monster.indeck = !monster.indeck;
-        cardInDeck(monster, monster.id, monster.indeck)
-      "
+      (click)="addCardInDeck(monster)"
       [ngClass]="{ yellowbox: monster.indeck }"
     >
       <h2
