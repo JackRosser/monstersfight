@@ -43,13 +43,20 @@ this.alertToggle = !this.alertToggle
 }
 
 
-addCardInDeck(card: iMonsters) {
-  if (this.myDeck && this.myDeck.length < 6) {
-    this.chiamataDeckService.addCard(card);
+addCardInDeck(card: iMonsters, id: number) {
+  if (card.indeck) {
+     this.chiamataDeckService.removeDeck(id);
+    card.indeck = false;
   } else {
-    this.alertToggle = !this.alertToggle;
+    if (this.myDeck && this.myDeck.length < 6) {
+      this.chiamataDeckService.addCard(card);
+      card.indeck = true;
+    } else {
+      this.alertToggle = true;
+    }
   }
 }
+
 
 
 
