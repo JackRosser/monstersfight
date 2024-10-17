@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { AllcardsService } from '../../services/allcards.service';
 import { iMonsters } from '../../models/i-monsters';
 
@@ -11,8 +11,6 @@ export class OpponentComponent {
 
   constructor(private chiamataAll:AllcardsService) {}
 
-  opponentCards: iMonsters[] = []
-
   monsterActive!: iMonsters
   background:string = ""
   hpCounter: number = 100
@@ -23,24 +21,19 @@ export class OpponentComponent {
 // ANIMAZIONE
 @Input() battleAnimationOppoent!: string
 @Input() toggleAnimation!: boolean
+@Input() opponentCards!: iMonsters[]
 
 
 
+ngOnChanges(changes: SimpleChanges) {
 
-
-
-
-
-  ngOnInit() {
-
-    this.chiamataAll.allCards$.subscribe(allCards => {
-    let randomIndex:number = Math.floor(Math.random() * allCards.length)
-    this.opponentCards = allCards
-    this.monsterActive = this.opponentCards[randomIndex]
-    this.background = `url(${this.monsterActive.sfondo})`
-
-  })
+  if (changes['opponentCards'] && this.opponentCards.length > 0) {
+    let randomIndex:number = Math.floor(Math.random() * this.opponentCards.length)
+    this.monsterActive = this.opponentCards[randomIndex];
+    this.background = `url(${this.monsterActive.sfondo})`;
   }
+}
+
 
 
 }
