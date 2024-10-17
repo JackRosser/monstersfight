@@ -1,3 +1,12 @@
+<div id="alert-troppe-carte" [class]="alert">
+  <p class="text-center">Non puoi inserire più di 6 carte nel deck</p>
+  <button
+    class="border px-5 hover:bg-white hover:text-black"
+    (click)="closeAlert()"
+  >
+    ok
+  </button>
+</div>
 <div *ngIf="monstersList" class="flex flex-col items-center gap-5">
   <app-selectattribute></app-selectattribute>
   <ul

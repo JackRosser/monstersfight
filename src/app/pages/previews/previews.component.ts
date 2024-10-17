@@ -31,27 +31,33 @@ monsterHover(monster: iMonsters) {
 newCard!: iMonsters
 
 toggleCardInDeck: boolean = false;
-
+alertMostrato: string = "absolute bg-black p-5 w-2/3 md:w-1/4 lg:top-[5rem] text-white rounded-[10px] z-50 flex flex-col items-center gap-5 border shadow-sm";
+alert: string = "hidden";
+alertAttivo: boolean = false;
 
 cardInDeck(monster: iMonsters, cardId: number) {
-if (!this.toggleCardInDeck) {
+  if (!this.toggleCardInDeck) {
     this.toggleCardInDeck = true;
     this.deck.addCardToDeck(monster).subscribe({
-      error: (error) => {
-        alert("Errore: " + error);
+      error: () => {
+        this.alert = this.alertMostrato;
+        if (!this.alertAttivo) {
+          this.alertAttivo = true;
+        }
       }
     });
   } else {
     this.toggleCardInDeck = false;
-    this.deck.deleteCardInDeck(cardId).subscribe({
-      error: (error) => {
-        alert("Errore: " + error);
-      }
-    });
+    this.deck.deleteCardInDeck(cardId).subscribe();
   }
 }
 
-
+closeAlert(): void {
+  if (this.alertAttivo) {
+    this.alertAttivo = false;
+  }
+  this.alert = "hidden";
+}
 
 
 
