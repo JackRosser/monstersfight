@@ -1,7 +1,6 @@
-<div id="alert-troppe-carte" [class]="alertMostrato">
+<div *ngIf="alertToggle" id="alert-troppe-carte" class="{{ alertMostrato }}">
   <p class="text-center">Non puoi inserire più di 6 carte nel deck</p>
   <button
-    *ngIf="alertToggle"
     class="border px-5 hover:bg-white hover:text-black"
     (click)="closeAlert()"
   >
