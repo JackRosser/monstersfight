@@ -9,7 +9,11 @@
   <div
     class="absolute top-[50%] -translate-y-[50%] w-full flex items-center justify-center p-10 gap-10 lg:h-[90vh] lg:gap-[10rem]"
   >
-    <app-player></app-player>
+    <app-player
+      [battleAnimationPlayer]="battleAnimationPlayer"
+      [toggleAnimation]="toggleAnimation"
+      (battleAnimationEmit)="battle($event)"
+    ></app-player>
     <app-opponent></app-opponent>
   </div>
 </section>

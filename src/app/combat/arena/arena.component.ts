@@ -10,24 +10,21 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class ArenaComponent {
 
-constructor(private chiamataDeck:DeckService,
-  private chiamataAll:AllcardsService
-) {}
+  //ANIMAZIONE DI COMBATTIMENTO
+  battleAnimationPlayer: string = "none";
+  toggleAnimation: boolean = false;
 
-deckSelezionato!:iMonsters[]
-avversario!: iMonsters[]
+  battle(event: {animation:string, toggle:boolean}) {
 
-ngOnInit() {
+    this.battleAnimationPlayer = "none";
+    this.toggleAnimation = event.toggle
 
-this.chiamataDeck.deck$.subscribe(deckGlobal => {
-  this.deckSelezionato = deckGlobal
-})
-
-this.chiamataAll.allCards$.subscribe(cardsList => {
-  this.avversario = cardsList
-
-})
-
-}
+  setTimeout(() => {
+      if (this.toggleAnimation) {
+        this.battleAnimationPlayer = event.animation
+        this.toggleAnimation = !this.toggleAnimation;
+      }
+    }, 10);
+  }
 
 }

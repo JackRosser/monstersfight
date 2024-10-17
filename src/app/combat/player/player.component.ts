@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DeckService } from '../../services/deck.service';
 import { iMonsters } from '../../models/i-monsters';
 
@@ -20,20 +20,18 @@ hp:string = `width: ${this.hpCounter}%`
 staminaCounter: number = 100
 stamina:string = `width: ${this.staminaCounter}%`
 
-battleAnimation: string = "none";
-toggleAnimation: boolean = false;
+@Input() battleAnimationPlayer!: string
+@Input() toggleAnimation!: boolean
 
-battle() {
+@Output() battleAnimationEmit = new EventEmitter<{animation: string, toggle: boolean}>();
 
-  this.battleAnimation = "none";
+battleOutput() {
+  this.battleAnimationPlayer = "battle 500ms ease-in-out";
   this.toggleAnimation = true;
-
-setTimeout(() => {
-    if (this.toggleAnimation) {
-      this.battleAnimation = "battle 500ms ease-in-out";
-      this.toggleAnimation = !this.toggleAnimation;
-    }
-  }, 10);
+  this.battleAnimationEmit.emit({
+    animation: this.battleAnimationPlayer,
+    toggle: this.toggleAnimation
+  });
 }
 
 
