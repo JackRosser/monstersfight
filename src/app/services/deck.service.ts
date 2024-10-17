@@ -45,13 +45,6 @@ export class DeckService {
       });
     }
 
-    // Controlla se la carta è già presente nel deck
-    const cardExists = currentDeck.some(card => card.id === newCard.id);
-    if (cardExists) {
-      return new Observable(observer => {
-        observer.error('La carta è già presente nel deck.');
-      });
-    }
 
     return this.chiamata.post<iMonsters>(this.deckUrl, newCard).pipe(
       tap((addedCard: iMonsters) => {

@@ -30,14 +30,27 @@ monsterHover(monster: iMonsters) {
 
 newCard!: iMonsters
 
-cardInDeck(monster: iMonsters) {
-  this.deck.addCardToDeck(monster).subscribe({
+toggleCardInDeck: boolean = false;
 
-    error: (error) => {
-      alert("Errore: " + error); // Gestione dell'errore
-    }
-  });
+
+cardInDeck(monster: iMonsters, cardId: number) {
+if (!this.toggleCardInDeck) {
+    this.toggleCardInDeck = true;
+    this.deck.addCardToDeck(monster).subscribe({
+      error: (error) => {
+        alert("Errore: " + error);
+      }
+    });
+  } else {
+    this.toggleCardInDeck = false;
+    this.deck.deleteCardInDeck(cardId).subscribe({
+      error: (error) => {
+        alert("Errore: " + error);
+      }
+    });
+  }
 }
+
 
 
 
