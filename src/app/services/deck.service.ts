@@ -1,25 +1,42 @@
 import { iMonsters } from './../models/i-monsters';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeckService {
 
-  constructor(private chiamata: HttpClient) {}
+  constructor(private chiamata: HttpClient) {
+    this.getDeck()
+  }
 
   deckUrl: string = "http://localhost:3000/deck";
 
   deckService!: iMonsters[]
 
-getDeck():Observable<iMonsters[]> {
-return this.chiamata.get<iMonsters[]>(this.deckUrl)
+deck$ = new BehaviorSubject<iMonsters[]>([])
+
+private getDeck() {
+this.chiamata.get<iMonsters[]>(this.deckUrl).subscribe(deckJSON => {
+  this.deckService = deckJSON
+  this.deck$.next(deckJSON)
+})
 }
 
 removeDeck(id:number) {
-return this.chiamata.delete<iMonsters>(`${this.deckUrl}/${id}`)
+  this.chiamata.delete<iMonsters>(`${this.deckUrl}/${id}`).pipe(tap(() => {
+  this.deckService = this.deckService.filter(card => card.id !== id)
+  this.deck$.next(this.deckService)
+})).subscribe()
+}
+
+addCard(card:Partial<iMonsters>) {
+  this.chiamata.post<iMonsters>(this.deckUrl, card).pipe(tap(card => {
+  this.deckService.push(card)
+  this.deck$.next(this.deckService)
+ })).subscribe()
 }
 
 

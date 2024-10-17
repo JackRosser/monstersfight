@@ -10,22 +10,24 @@ import { Component, Input } from '@angular/core';
 })
 export class DeckmodalComponent {
 
-constructor(private decklist:DeckService) {}
+constructor(private chiamataService:DeckService) {}
 
 @Input() deckModal!: string // DENTRO A NAVBAR
 
-deck!: iMonsters[]
+myDeck!: iMonsters[]
 
-deleteCard(cardId:number) {
-  this.decklist.deleteCardInDeck(cardId).subscribe()
+
+deleteCard(id:number) {
+  this.chiamataService.removeDeck(id)
 }
 
 ngOnInit() {
-  this.decklist.loadDeck(); // MI aSSICURO CHE IL DECK SI CARICHI
-  this.decklist.cardsInDeck$.subscribe(list => {
-    this.deck = list;
-  });
+this.chiamataService.deck$.subscribe(deckGlobal => {
+  this.myDeck = deckGlobal
+})
 }
 
+  }
 
-}
+
+

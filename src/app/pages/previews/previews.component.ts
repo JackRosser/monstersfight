@@ -11,7 +11,7 @@ import { DeckService } from '../../services/deck.service';
 export class PreviewsComponent {
 
 constructor(private list:AllcardsService,
-  private deck:DeckService) {}
+  private chiamataDeckService:DeckService) {}
 
 monstersList!: iMonsters[]
 bgCheCambia!: string
@@ -30,39 +30,37 @@ monsterHover(monster: iMonsters) {
 
 newCard!: iMonsters
 
-//GESTIONE TOGGLE
+//GESTIONE dECK
 
 alertMostrato: string = "absolute bg-black p-5 w-2/3 md:w-1/4 lg:top-[5rem] text-white rounded-[10px] z-50 flex flex-col items-center gap-5 border shadow-sm";
 
 myDeck!: iMonsters[]
 alertToggle:boolean = false
 
-cardInDeck() {
+
+closeAlert() {
 this.alertToggle = !this.alertToggle
 }
 
-addCardInDeck(card:iMonsters) {
-  if(this.myDeck.length < 6) {
-  this.myDeck.push(card)}
-  else {
-    this.alertToggle = !this.alertToggle
+
+addCardInDeck(card: iMonsters) {
+  if (this.myDeck && this.myDeck.length < 6) {
+    this.chiamataDeckService.addCard(card);
+  } else {
+    this.alertToggle = !this.alertToggle;
   }
 }
 
-closeAlert() {
 
-}
 
 ngOnInit() {
-
 // VISUALIZZO TUTTE LE CARTE
 this.list.allCards$.subscribe(cardlist => {
 this.monstersList = cardlist
-// VISUALIZZO LE CARTE DEL DECK
-this.deck.getDeck().subscribe(deckOttenuto => {
-this.myDeck = deckOttenuto
+
+this.chiamataDeckService.deck$.subscribe(deckGLOBAL => {
+  this.myDeck = deckGLOBAL
 })
-this.deck.deckService = this.myDeck
 })
 
 }
