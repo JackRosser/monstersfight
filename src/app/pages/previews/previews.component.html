@@ -8,7 +8,10 @@
   </button>
 </div>
 <div *ngIf="monstersList" class="flex flex-col items-center gap-5">
-  <app-selectattribute></app-selectattribute>
+  <app-selectattribute
+    (iconaScelta)="elementFilter($event)"
+    (iconaTotale)="showAll($event)"
+  ></app-selectattribute>
   <ul
     class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5 gap-3"
   >

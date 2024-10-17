@@ -1,5 +1,5 @@
+import { iMonsters } from './../../models/i-monsters';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { iMonsters } from '../../models/i-monsters';
 import { AllcardsService } from '../../services/allcards.service';
 
 @Component({
@@ -15,6 +15,21 @@ constructor(private cardsList:AllcardsService) {}
 monstersList!: iMonsters[]
 icons: string[] = ["services/icons/acqua.webp", "services/icons/fuoco.webp", "services/icons/vento.webp", "services/icons/terra.webp", "services/icons/erba.webp", "services/icons/legendary.webp"]
 iconClass: string = "max-h-[4rem] rounded-full cursor-pointer hover:scale-110 hover:rotate-[20deg] transition-transform duration-[300ms] active:scale-50"
+
+@Output() iconaScelta = new EventEmitter<string>()
+@Output() iconaTotale = new EventEmitter<iMonsters[]>()
+
+
+iconaCliccata!: string
+
+showMyActribute(icona:string) {
+this.iconaCliccata = icona
+this.iconaScelta.emit(this.iconaCliccata)
+}
+
+allCardsIcon() {
+  this.iconaTotale.emit(this.monstersList)
+}
 
 
 ngOnInit() {

@@ -1,8 +1,15 @@
 <section class="flex gap-2 md:gap-10 lg:gap-4 xl:gap-10 lg:mt-[4rem]">
   <img
+    src="services/icons/all.webp"
+    alt="allcards"
+    [class]="iconClass"
+    (click)="allCardsIcon()"
+  />
+  <img
     *ngFor="let icon of icons; let i = index"
     [attr.src]="icons[i]"
     alt="icon"
     [class]="iconClass"
+    (click)="showMyActribute(icons[i])"
   />
 </section>

@@ -28,7 +28,20 @@ monsterHover(monster: iMonsters) {
   }
 }
 
-newCard!: iMonsters
+cardClones!: iMonsters[]
+
+// GESIONE FILTRO PER ELEMENTO
+
+elementFilter(elemento:string) {
+if(this.monstersList != this.cardClones) {
+  this.monstersList = this.cardClones
+}
+  this.monstersList = this.monstersList.filter(e => e.icon === elemento)
+}
+
+showAll(allCards:iMonsters[]) {
+this.monstersList = allCards
+}
 
 //GESTIONE dECK
 
@@ -64,6 +77,7 @@ ngOnInit() {
 // VISUALIZZO TUTTE LE CARTE
 this.list.allCards$.subscribe(cardlist => {
 this.monstersList = cardlist
+this.cardClones = cardlist
 
 this.chiamataDeckService.deck$.subscribe(deckGLOBAL => {
   this.myDeck = deckGLOBAL
