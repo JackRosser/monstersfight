@@ -15,6 +15,8 @@ import { SelectattributeComponent } from './pages/selectattribute/selectattribut
 import { MenuinizialeComponent } from './pages/menuiniziale/menuiniziale.component';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { ArenaComponent } from './combat/arena/arena.component';
+import { PlayerComponent } from './combat/player/player.component';
+import { OpponentComponent } from './combat/opponent/opponent.component';
 
 const routes: Route[] = [
   {
@@ -46,6 +48,8 @@ const routes: Route[] = [
     SelectattributeComponent,
     MenuinizialeComponent,
     ArenaComponent,
+    PlayerComponent,
+    OpponentComponent,
 
   ],
   imports: [
