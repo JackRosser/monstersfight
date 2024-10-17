@@ -17,7 +17,8 @@
       class="cursor-pointer hover:brightness-125 hover:shadow-2xl relative rounded-3xl active:scale-90 active:opacity-50 transition-transform duration-[300ms]"
       (mouseover)="monsterHover(monster)"
       (click)="
-        cardInDeck(monster, monster.id); monster.indeck = !monster.indeck
+        monster.indeck = !monster.indeck;
+        cardInDeck(monster, monster.id, monster.indeck)
       "
       [ngClass]="{ yellowbox: monster.indeck }"
     >
