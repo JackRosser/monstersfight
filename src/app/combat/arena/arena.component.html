@@ -1,4 +1,4 @@
-<section>
+<section class="relative">
   <video
     src="video/arena.mp4"
     muted
@@ -6,6 +6,10 @@
     autoplay
     class="h-[100vh] w-[100vw] object-cover object-center"
   ></video>
-  <app-player></app-player>
-  <app-opponent></app-opponent>
+  <div
+    class="absolute top-[50%] -translate-y-[50%] border-2 border-red-600 flex items-center justify-center p-10 gap-10 lg:h-[90vh]"
+  >
+    <app-player></app-player>
+    <app-opponent></app-opponent>
+  </div>
 </section>

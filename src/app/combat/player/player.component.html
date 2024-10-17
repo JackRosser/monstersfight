@@ -1,47 +1,62 @@
-<section>
-  <div
-    *ngIf="deckPlayer.length > 0"
-    class="absolute top-0 w-1/3 flex flex-col border shadow-md"
-    [style]="background"
-  >
-    <img [src]="monsterActive.img" alt="imagemonster" class="" />
-    <div class="bg-black w-full flex flex-col items-start">
-      <div class="bg-green-500 p-2" [style]="hp"></div>
-      <div class="bg-sky-400 p-2" [style]="stamina"></div>
+<div
+  *ngIf="deckPlayer.length > 0"
+  class="flex flex-col items-center border shadow-md p-3 max-h-[90vh] w-full max-w-full"
+  [style]="background"
+>
+  <img
+    [src]="monsterActive.img"
+    alt="imagemonster"
+    class="w-full max-h-[50vh] object-contain"
+  />
+
+  <div class="bg-black w-full flex flex-col items-start">
+    <div class="bg-green-500 p-2 shadow-inner" [style]="hp"></div>
+    <div class="bg-sky-400 p-2 shadow-inner" [style]="stamina"></div>
+  </div>
+
+  <div class="flex justify-evenly gap-2 p-3 w-full">
+    <div
+      class="text-white flex flex-col items-center justify-center gap-2 my-2 w-1/3"
+    >
+      <img
+        src="services/icons/arena/atk.webp"
+        alt="atkicon"
+        class="max-h-[50px] rounded-full"
+      />
+      <span class="bg-black px-2 rounded-full">{{ monsterActive.atk }}</span>
     </div>
-    <div class="flex justify-between gap-2 p-3">
-      <div
-        class="text-white flex flex-col items-center justify-center gap-2 my-2"
-      >
-        <span
-          ><img
-            src="services/icons/arena/atk.webp"
-            alt="atkicon"
-            class="max-h-[50px] rounded-full" /></span
-        ><span class="bg-black px-2 rounded-full">{{ monsterActive.atk }}</span>
-      </div>
-      <div
-        class="text-white flex flex-col items-center justify-center gap-2 my-2"
-      >
-        <span
-          ><img
-            src="services/icons/arena/def.webp"
-            alt="atkicon"
-            class="max-h-[50px] rounded-full" /></span
-        ><span class="bg-black px-2 rounded-full">{{ monsterActive.def }}</span>
-      </div>
-      <div
-        class="text-white flex flex-col items-center justify-center gap-2 my-2"
-      >
-        <span
-          ><img
-            src="services/icons/arena/speed.webp"
-            alt="atkicon"
-            class="max-h-[50px] rounded-full" /></span
-        ><span class="bg-black px-2 rounded-full">{{
-          monsterActive.speed
-        }}</span>
-      </div>
+    <div
+      class="text-white flex flex-col items-center justify-center gap-2 my-2 w-1/3"
+    >
+      <img
+        src="services/icons/arena/def.webp"
+        alt="atkicon"
+        class="max-h-[50px] rounded-full"
+      />
+      <span class="bg-black px-2 rounded-full">{{ monsterActive.def }}</span>
+    </div>
+    <div
+      class="text-white flex flex-col items-center justify-center gap-2 my-2 w-1/3"
+    >
+      <img
+        src="services/icons/arena/speed.webp"
+        alt="atkicon"
+        class="max-h-[50px] rounded-full"
+      />
+      <span class="bg-black px-2 rounded-full">{{ monsterActive.speed }}</span>
     </div>
   </div>
-</section>
+
+  <div class="flex gap-5 justify-evenly p-2 w-full">
+    <button
+      class="bg-slate-500 p-2 rounded-3xl text-white hover:bg-green-500 hover:text-black hover:scale-110 transition-transform duration-300 active:scale-100 w-1/3"
+    >
+      ATK
+    </button>
+    <button
+      class="bg-slate-500 p-2 rounded-3xl text-white hover:bg-orange-500 hover:text-black hover:scale-110 transition-transform duration-300 active:scale-100 w-1/3"
+    >
+      SWITCH
+    </button>
+  </div>
+</div>
