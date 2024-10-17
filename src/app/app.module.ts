@@ -14,17 +14,22 @@ import { YellowboxDirective } from './directives/yellowbox.directive';
 import { SelectattributeComponent } from './pages/selectattribute/selectattribute.component';
 import { MenuinizialeComponent } from './pages/menuiniziale/menuiniziale.component';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { ArenaComponent } from './combat/arena/arena.component';
 
 const routes: Route[] = [
   {
     path: "",
-    component: MenuinizialeComponent
-    // component: MonsterselectComponent
+    // component: MenuinizialeComponent
+    component: ArenaComponent
 
   },
   {
     path: "card-selector",
     component: MonsterselectComponent
+  },
+  {
+    path: "arena",
+    component: ArenaComponent
   }
 ]
 
@@ -40,6 +45,7 @@ const routes: Route[] = [
     YellowboxDirective,
     SelectattributeComponent,
     MenuinizialeComponent,
+    ArenaComponent,
 
   ],
   imports: [
