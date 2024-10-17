@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AllcardsService } from '../../services/allcards.service';
 import { iMonsters } from '../../models/i-monsters';
 
@@ -19,6 +19,17 @@ export class OpponentComponent {
   hp:string = `width: ${this.hpCounter}%`
   staminaCounter: number = 100
   stamina:string = `width: ${this.staminaCounter}%`
+
+// ANIMAZIONE
+@Input() battleAnimationOppoent!: string
+@Input() toggleAnimation!: boolean
+
+
+
+
+
+
+
 
   ngOnInit() {
 

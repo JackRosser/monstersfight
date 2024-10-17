@@ -9,3 +9,15 @@
     transform: translateX(0);
   }
 }
+
+@keyframes opponent {
+  from {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

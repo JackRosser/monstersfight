@@ -1,7 +1,12 @@
 <div
   *ngIf="opponentCards.length > 0"
   class="flex flex-col items-center border shadow-md p-3 max-h-[90vh] w-full max-w-full"
-  [style]="background"
+  [ngStyle]="{
+    background: background,
+    'background-position': 'center',
+    'background-size': 'cover',
+    animation: battleAnimationOppoent
+  }"
 >
   <img
     [src]="monsterActive.img"

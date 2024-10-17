@@ -14,6 +14,9 @@
       [toggleAnimation]="toggleAnimation"
       (battleAnimationEmit)="battle($event)"
     ></app-player>
-    <app-opponent></app-opponent>
+    <app-opponent
+      [battleAnimationOppoent]="battleAnimationOpponent"
+      [toggleAnimation]="toggleAnimation"
+    ></app-opponent>
   </div>
 </section>

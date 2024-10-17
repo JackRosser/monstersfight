@@ -12,16 +12,19 @@ export class ArenaComponent {
 
   //ANIMAZIONE DI COMBATTIMENTO
   battleAnimationPlayer: string = "none";
+  battleAnimationOpponent: string = "none";
   toggleAnimation: boolean = false;
 
   battle(event: {animation:string, toggle:boolean}) {
 
     this.battleAnimationPlayer = "none";
+    this.battleAnimationOpponent = "none";
     this.toggleAnimation = event.toggle
 
   setTimeout(() => {
       if (this.toggleAnimation) {
         this.battleAnimationPlayer = event.animation
+        this.battleAnimationOpponent = "opponent 500ms ease-in-out"
         this.toggleAnimation = !this.toggleAnimation;
       }
     }, 10);
