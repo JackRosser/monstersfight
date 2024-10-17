@@ -19,6 +19,7 @@ stamina:string = `width: ${this.staminaCounter}%`
 @Input() battleAnimationPlayer!: string
 @Input() toggleAnimation!: boolean
 @Input() playerCard: iMonsters[] = []
+@Input() monsterInCombat!: iMonsters
 
 @Output() battleAnimationEmit = new EventEmitter<{animation: string, toggle: boolean}>();
 
@@ -38,6 +39,8 @@ ngOnChanges(changes: SimpleChanges) {
     this.monsterActive = this.playerCard[0];
     this.background = `url(${this.monsterActive.sfondo})`;
   }
+
+
 }
 
 

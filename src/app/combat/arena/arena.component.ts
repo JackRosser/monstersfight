@@ -1,7 +1,8 @@
+import { AllcardsService } from './../../services/allcards.service';
 import { Component } from '@angular/core';
 import { DeckService } from '../../services/deck.service';
-import { AllcardsService } from '../../services/allcards.service';
 import { iMonsters } from '../../models/i-monsters';
+import { map, take } from 'rxjs';
 
 @Component({
   selector: 'app-arena',
@@ -13,7 +14,11 @@ export class ArenaComponent {
 constructor(private chiamataPlayer:DeckService, private chiamataOpponent:AllcardsService) {}
 
 playerCards:iMonsters[] = []
-opponentCards:iMonsters[] = []
+allCardsInGame:iMonsters[] = []
+opponentCards!:iMonsters[]
+
+
+
 
 
   //ANIMAZIONE DI COMBATTIMENTO
@@ -36,16 +41,32 @@ opponentCards:iMonsters[] = []
     }, 10);
   }
 
+
+// PARTE DEL PLAYER
+monsterInCombat!: iMonsters
+monsterOpponent!: iMonsters
+
+
+
 ngOnInit(){
 
 this.chiamataPlayer.deck$.subscribe(deckImportato => {
   this.playerCards = deckImportato
 
+  if(this.playerCards.length > 0) {
+this.monsterInCombat = this.playerCards[0]
+
+}
+
+
 })
 
-this.chiamataOpponent.allCards$.subscribe(cardsOpponent => {
-  this.opponentCards = cardsOpponent
-})
+this.chiamataOpponent.allCards$.pipe(
+map(cards =>)
+).subscribe()
+
+
+
 
 }
 
