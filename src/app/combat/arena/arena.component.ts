@@ -41,25 +41,8 @@ opponentCards:iMonsters[] = []
   }
 
 
-// PARTE DEL PLAYER
-monsterInCombat: iMonsters = {
-  id: 0,
-  name: '',
-  type: '',
-  description: '',
-  principale: '',
-  debolezza: '',
-  hp: 0,
-  atk: 0,
-  def: 0,
-  speed: 0,
-  stamina: 0,
-  img: '',
-  icon: '',
-  locked: false,
-  indeck: false,
-  sfondo: ''
-}
+
+
 playerHpValue:number = 100
 playerStaminaValue:number = 100
 
@@ -72,27 +55,6 @@ get playerStamina(): string {
   return `${this.playerStaminaValue}%`;
 }
 
-
-// PARTE DELL'OPPONENT
-
-monsterOpponent: iMonsters = {
-  id: 0,
-  name: '',
-  type: '',
-  description: '',
-  principale: '',
-  debolezza: '',
-  hp: 0,
-  atk: 0,
-  def: 0,
-  speed: 0,
-  stamina: 0,
-  img: '',
-  icon: '',
-  locked: false,
-  indeck: false,
-  sfondo: ''
-}
 opponentHpValue:number = 100
 opponentStaminaValue:number = 100
 
@@ -104,39 +66,5 @@ get opponentStamina(): string {
   return `${this.opponentStaminaValue}%`;
 }
 
-
-// BATTAGLIA
-
-playerAtk:number = 0
-opponentDef:number = 0
-
-damage:number = this.playerAtk - this.opponentDef
-
-
-ngOnInit(){
-
-this.chiamataPlayer.deck$.subscribe(deckImportato => {
-  this.playerCards = deckImportato
-
-  if(this.playerCards.length > 0) {
-this.monsterInCombat = this.playerCards[0]
-this.playerAtk = this.monsterInCombat.atk
-
-}
-
-
-
-
-})
-
-this.chiamataOpponent.allCards$.subscribe(deckAvversarioGlobale => {
-this.opponentCards = deckAvversarioGlobale
-})
-
-
-
-
-
-}
 
 }
