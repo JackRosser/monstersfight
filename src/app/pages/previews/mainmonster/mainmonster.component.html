@@ -1,8 +1,9 @@
 <div
   class="backdrop-blur-sm shadow-md border-t md:border-b bg-black bg-opacity-30 w-full flex p-5 font-medium text-white flex-col justify-center gap-2"
-  *ngIf="monstersList"
+  *ngIf="monstersList && monsterActive"
 >
   <img
+    *ngIf="monsterActive.icon"
     [src]="monsterActive.icon"
     alt="icon"
     class="absolute rounded-full max-h-20 top-0 right-[0.5rem] -translate-y-[50%] border shadow-sm z-20"
@@ -12,37 +13,37 @@
     <h2
       class="text-[1.8rem] md:text-[2.5rem] absolute top-0 -translate-y-[120%] bg-black bg-opacity-50 shadow-md border px-3 rounded-xl"
     >
-      {{ monsterActive.name }}
+      {{ monsterActive?.name }}
     </h2>
 
     <p
       class="text-[0.7rem] md:text-[1rem] absolute end-[1rem] bottom-[1rem] max-w-[150px] md:max-w-[250px] text-end italic"
     >
-      {{ monsterActive.description }}
+      {{ monsterActive?.description }}
     </p>
     <h3>
-      <span class="bg-black py-1 px-4 rounded-md me-1 italic border">HP</span>
-      {{ monsterActive.hp }}
+      <span class="bg-black py-1 px-4 rounded-md mr-1 italic border">HP</span>
+      {{ monsterActive?.hp }}
     </h3>
     <h3>
-      <span class="bg-black py-1 px-4 rounded-md me-1 italic border">ATK</span>
-      {{ monsterActive.atk }}
+      <span class="bg-black py-1 px-4 rounded-md mr-1 italic border">ATK</span>
+      {{ monsterActive?.atk }}
     </h3>
     <h3>
-      <span class="bg-black py-1 px-4 rounded-md me-1 italic border">DEF</span>
-      {{ monsterActive.def }}
+      <span class="bg-black py-1 px-4 rounded-md mr-1 italic border">DEF</span>
+      {{ monsterActive?.def }}
     </h3>
     <h3>
-      <span class="bg-black py-1 px-4 rounded-md me-1 italic border"
+      <span class="bg-black py-1 px-4 rounded-md mr-1 italic border"
         >STAMINA</span
       >
-      {{ monsterActive.stamina }}
+      {{ monsterActive?.stamina }}
     </h3>
     <h3>
-      <span class="bg-black py-1 px-4 rounded-md me-1 italic border"
+      <span class="bg-black py-1 px-4 rounded-md mr-1 italic border"
         >SPEED</span
       >
-      {{ monsterActive.speed }}
+      {{ monsterActive?.speed }}
     </h3>
   </div>
 </div>

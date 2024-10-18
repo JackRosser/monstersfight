@@ -1,7 +1,7 @@
 <ul [class]="deckModal">
   <li
     *ngFor="let card of myDeck"
-    class="cursor-pointer flex flex-col items-center text-white justify-start border"
+    class="cursor-pointer flex flex-col items-center text-white justify-start border max-h-[480px]"
     [ngStyle]="{
       'background-image': 'url(' + card.sfondo + ')',
       'background-size': 'cover',
