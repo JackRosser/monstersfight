@@ -35,8 +35,8 @@ export class PlayerComponent {
 
 playerMonster!:iMonsters
 background!:string
-playerHpGraphic:string = `${this.playerHp}%`
-playerStaminaGraphic:string = `${this.playerStamina}%`
+playerHpGraphic!:string
+playerStaminaGraphic!:string
 
 
 ngOnInit() {
@@ -47,6 +47,12 @@ ngOnInit() {
     }
 
   })
+  if(this.playerHp) {
+    this.playerHpGraphic = `${this.playerHp}%`
+  }
+  if(this.playerStamina) {
+    this.playerStaminaGraphic = `${this.playerStamina}%`
+  }
 }
 
 

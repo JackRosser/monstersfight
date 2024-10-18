@@ -22,8 +22,8 @@ export class OpponentComponent {
 
 opponentMonster!:iMonsters
 background!:string
-opponentHpGraphic:string = `${this.opponentHp}%`
-opponentStaminaGraphic:string = `${this.opponentStamina}%`
+opponentHpGraphic!:string
+opponentStaminaGraphic!:string
 
 
 ngOnInit() {
@@ -33,6 +33,14 @@ ngOnInit() {
       this.background = `url(${monster.sfondo})`
       }
   })
+
+  if(this.opponentHp) {
+    this.opponentHpGraphic = `${this.opponentHp}%`
+  }
+  if(this.opponentStamina) {
+    this.opponentStaminaGraphic = `${this.opponentStamina}%`
+  }
+
 }
 
 
