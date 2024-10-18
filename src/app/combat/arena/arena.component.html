@@ -17,15 +17,11 @@
     <app-player
       [battleAnimationPlayer]="battleAnimationPlayer"
       [toggleAnimation]="toggleAnimation"
-      (battleAnimationEmit)="battle($event)"
-      [playerHp]="playerHp"
-      [playerStamina]="playerStamina"
+      (battleEmit)="battle($event)"
     ></app-player>
     <app-opponent
       [battleAnimationOppoent]="battleAnimationOpponent"
       [toggleAnimation]="toggleAnimation"
-      [opponentHp]="opponentHp"
-      [opponentStamina]="opponentStamina"
     ></app-opponent>
   </div>
 </section>

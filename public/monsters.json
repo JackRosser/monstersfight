@@ -1460,5 +1460,13 @@
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp"
     }
+  ],
+  "battle": [
+    {
+      "playerHp": 100,
+      "playerStamina": 100,
+      "opponentHp": 100,
+      "opponentStamina": 100
+    }
   ]
 }

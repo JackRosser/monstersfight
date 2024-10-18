@@ -17,14 +17,14 @@ export class OpponentComponent {
 // ANIMAZIONE
 @Input() battleAnimationOppoent!: string
 @Input() toggleAnimation!: boolean
-@Input() opponentHp!: number
-@Input() opponentStamina!: number
+
 
 opponentMonster!:iMonsters
 background!:string
 opponentHpGraphic!:string
 opponentStaminaGraphic!:string
-
+opponentHp!: number
+opponentStamina!: number
 
 ngOnInit() {
   this.battleSvc.opponent$.subscribe(monster => {
@@ -34,12 +34,22 @@ ngOnInit() {
       }
   })
 
-  if(this.opponentHp) {
-    this.opponentHpGraphic = `${this.opponentHp}%`
-  }
-  if(this.opponentStamina) {
-    this.opponentStaminaGraphic = `${this.opponentStamina}%`
-  }
+  this.battleSvc.opponentHp$.subscribe(hp => {
+    this.opponentHp = hp
+    if(this.opponentHp) {
+      this.opponentHpGraphic = `${this.opponentHp}%`
+    }
+  })
+
+  this.battleSvc.opponentStamina$.subscribe(stamina => {
+    this.opponentStamina = stamina
+    if(this.opponentStamina) {
+      this.opponentStaminaGraphic = `${this.opponentStamina}%`
+    }
+  })
+
+
+
 
 }
 

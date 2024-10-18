@@ -16,16 +16,35 @@ constructor(private chiamataPlayer:DeckService, private chiamataOpponent:Allcard
 
 
 
-  //ANIMAZIONE DI COMBATTIMENTO
+playerInCombat!: iMonsters
+opponentInCombat!: iMonsters
+
+// PLAYER
+
+playerHp!:number
+playerStamina!:number
+
+// OPPONENT
+
+opponentHp!:number
+opponentStamina!:number
+
+
+// ANIMAZIONE BATTAGLIA
   battleAnimationPlayer: string = "none";
   battleAnimationOpponent: string = "none";
   toggleAnimation: boolean = false;
 
-  battle(event: {animation:string, toggle:boolean}) {
+  battle(event: {animation:string, toggle:boolean, danno:number}) {
 
     this.battleAnimationPlayer = "none";
     this.battleAnimationOpponent = "none";
     this.toggleAnimation = event.toggle
+    this.playerHp = event.danno
+    this.opponentHp = 50
+    this.battleSvc.reduceHpOpponent(this.opponentHp)
+
+
 
   setTimeout(() => {
       if (this.toggleAnimation) {
@@ -37,18 +56,9 @@ constructor(private chiamataPlayer:DeckService, private chiamataOpponent:Allcard
   }
 
 
-playerInCombat!: iMonsters
-opponentInCombat!: iMonsters
 
-// PLAYER
 
-playerHp:number = 100
-playerStamina:number = 100
 
-// OPPONENT
-
-opponentHp:number = 100
-opponentStamina:number = 100
 
 
 
@@ -66,6 +76,21 @@ this.chiamataOpponent.allCards$.subscribe(cardOpponentInCombat => {
 
 })
 
+this.battleSvc.playerHp$.subscribe(hp => {
+  this.playerHp = hp
+})
+
+this.battleSvc.playerStamina$.subscribe(stamina => {
+  this.playerStamina = stamina
+})
+
+this.battleSvc.opponentHp$.subscribe(hp => {
+  this.opponentHp = hp
+})
+
+this.battleSvc.opponentStamina$.subscribe(stamina => {
+  this.opponentStamina = stamina
+})
 
 }
 

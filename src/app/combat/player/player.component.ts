@@ -17,19 +17,19 @@ export class PlayerComponent {
 
   @Input() battleAnimationPlayer!: string;
   @Input() toggleAnimation!: boolean;
-  @Input() playerHp!: number
-  @Input() playerStamina!: number
+
 
   // Output per emettere eventi di animazione di battaglia
-  @Output() battleAnimationEmit = new EventEmitter<{ animation: string, toggle: boolean }>();
+  @Output() battleEmit = new EventEmitter<{ animation: string, toggle: boolean, danno:number }>();
 
   // Funzione che emette l'evento per l'animazione
   battleOutput() {
     this.battleAnimationPlayer = 'battle 500ms ease-in-out';
     this.toggleAnimation = true;
-    this.battleAnimationEmit.emit({
+    this.battleEmit.emit({
       animation: this.battleAnimationPlayer,
-      toggle: this.toggleAnimation
+      toggle: this.toggleAnimation,
+      danno: this.playerMonster.atk
     });
   }
 
@@ -37,7 +37,8 @@ playerMonster!:iMonsters
 background!:string
 playerHpGraphic!:string
 playerStaminaGraphic!:string
-
+playerHp!: number
+playerStamina!: number
 
 ngOnInit() {
   this.battleSvc.player$.subscribe(monster => {
@@ -46,13 +47,22 @@ ngOnInit() {
     this.background = `url(${monster.sfondo})`
     }
 
+    this.battleSvc.playerHp$.subscribe(hp => {
+      this.playerHp = hp
+      if(this.playerHp) {
+        this.playerHpGraphic = `${this.playerHp}%`
+      }
+    })
+
+    this.battleSvc.playerStamina$.subscribe(stamina => {
+      this.playerStamina = stamina
+      if(this.playerStamina) {
+        this.playerStaminaGraphic = `${this.playerStamina}%`
+      }
+    })
+
   })
-  if(this.playerHp) {
-    this.playerHpGraphic = `${this.playerHp}%`
-  }
-  if(this.playerStamina) {
-    this.playerStaminaGraphic = `${this.playerStamina}%`
-  }
+
 }
 
 
