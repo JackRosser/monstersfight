@@ -28,7 +28,7 @@ opponentMonsterReceved:boolean = false
 
 
 ngOnInit() {
-  this.battleSvc.player$.subscribe(monster => {
+  this.battleSvc.opponent$.subscribe(monster => {
     this.opponentMonster = monster
     this.background = `url(${monster.sfondo})`
     this.opponentMonsterReceved = true
