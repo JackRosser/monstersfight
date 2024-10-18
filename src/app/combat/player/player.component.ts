@@ -37,14 +37,15 @@ playerMonster!:iMonsters
 background!:string
 playerHpGraphic:string = `${this.playerHp}%`
 playerStaminaGraphic:string = `${this.playerStamina}%`
-playerMonsterReceved:boolean = false
 
 
 ngOnInit() {
   this.battleSvc.player$.subscribe(monster => {
     this.playerMonster = monster
+    if(this.playerMonster) {
     this.background = `url(${monster.sfondo})`
-    this.playerMonsterReceved = true
+    }
+
   })
 }
 
