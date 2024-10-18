@@ -23,8 +23,8 @@ const routes: Route[] = [
   {
     path: "",
     // component: MenuinizialeComponent
-    // component: ArenaComponent
-    component: MonsterselectComponent
+    component: ArenaComponent
+    // component: MonsterselectComponent
 
   },
   {

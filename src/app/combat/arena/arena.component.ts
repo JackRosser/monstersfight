@@ -14,8 +14,7 @@ export class ArenaComponent {
 constructor(private chiamataPlayer:DeckService, private chiamataOpponent:AllcardsService) {}
 
 playerCards:iMonsters[] = []
-allCardsInGame:iMonsters[] = []
-opponentCards!:iMonsters[]
+opponentCards:iMonsters[] = []
 
 
 
@@ -61,7 +60,9 @@ this.monsterInCombat = this.playerCards[0]
 
 })
 
-// FARE LA CHIAMATA PER ALLCARDS
+this.chiamataOpponent.allCards$.subscribe(deckAvversarioGlobale => {
+this.opponentCards = deckAvversarioGlobale
+})
 
 
 
