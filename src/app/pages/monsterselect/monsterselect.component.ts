@@ -28,12 +28,14 @@ mostroVisualizzato(mostro:iMonsters) {
 
 ngOnInit() {
   this.chiamataAll.allCards$.subscribe(cards => {
-    this.monstersList = cards
-    this.monsterBg = `background-image: url(${this.monstersList[0].img})`
-
-
-})
+    if (cards.length > 0) {
+      this.monstersList = cards;
+      this.monsterBg = `background-image: url(${this.monstersList[0].img})`;
+      this.mostroAttivo = this.monstersList[0];
+    }
+  });
 }
+
 
 
 }
