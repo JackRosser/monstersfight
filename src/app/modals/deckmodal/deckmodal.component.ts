@@ -1,6 +1,5 @@
 import { DeckService } from '../../services/deck.service';
 import { iMonsters } from './../../models/i-monsters';
-import { GlobalfetchService } from './../../services/globalfetch.service';
 import { Component, Input } from '@angular/core';
 
 @Component({

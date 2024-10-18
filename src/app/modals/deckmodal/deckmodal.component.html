@@ -1,17 +1,24 @@
 <ul [class]="deckModal">
   <li
     *ngFor="let card of myDeck"
-    class="cursor-pointer flex flex-col items-center text-white justify-start"
+    class="cursor-pointer flex flex-col items-center text-white justify-start border"
+    [ngStyle]="{
+      'background-image': 'url(' + card.sfondo + ')',
+      'background-size': 'cover',
+      'background-position': 'center'
+    }"
   >
-    <div class="relative border">
+    <div class="relative">
       <img
         [src]="card.img"
         alt="immagine"
         class="w-full hover:brightness-[1.2]"
       />
       <div class="flex p-3 gap-3 justify-between items-center">
-        <div>
-          <div class="text-center flex justify-center gap-x-5">
+        <div class="border">
+          <div
+            class="text-center flex justify-start gap-x-5 bg-black bg-opacity-50 p-1"
+          >
             <p
               before="ATK"
               class="before:content-[attr(before)] before:font-medium before:italic"
@@ -25,7 +32,9 @@
               {{ card.def }}
             </p>
           </div>
-          <div class="text-center flex justify-center gap-x-5">
+          <div
+            class="text-center flex justify-center gap-x-5 bg-black bg-opacity-50 p-1"
+          >
             <p
               before="HP"
               class="before:content-[attr(before)] before:font-medium before:italic"
