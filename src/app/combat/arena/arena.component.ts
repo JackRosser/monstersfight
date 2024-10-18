@@ -45,9 +45,10 @@ opponentInCombat!: iMonsters
 playerHp:number = 100
 playerStamina:number = 100
 
+// OPPONENT
 
-
-
+opponentHp:number = 100
+opponentStamina:number = 100
 
 
 

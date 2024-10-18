@@ -1,6 +1,7 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { AllcardsService } from '../../services/allcards.service';
 import { iMonsters } from '../../models/i-monsters';
+import { BattleService } from '../../services/battle.service';
 
 @Component({
   selector: 'app-opponent',
@@ -9,30 +10,29 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class OpponentComponent {
 
+  constructor(private battleSvc:BattleService) {
 
-  monsterActive!: iMonsters
-  background:string = ""
-  hpCounter: number = 100
-  hp:string = `width: ${this.hpCounter}%`
-  staminaCounter: number = 100
-  stamina:string = `width: ${this.staminaCounter}%`
+  }
 
 // ANIMAZIONE
 @Input() battleAnimationOppoent!: string
 @Input() toggleAnimation!: boolean
-@Input() opponentCards!: iMonsters[]
-@Input() opponentHp!: string
-@Input() opponentStamina!: string
+@Input() opponentHp!: number
+@Input() opponentStamina!: number
+
+opponentMonster!:iMonsters
+background!:string
+opponentHpGraphic:string = `${this.opponentHp}%`
+opponentStaminaGraphic:string = `${this.opponentStamina}%`
+opponentMonsterReceved:boolean = false
 
 
-
-ngOnChanges(changes: SimpleChanges) {
-
-  if (changes['opponentCards'] && this.opponentCards.length > 0) {
-    let randomIndex:number = Math.floor(Math.random() * this.opponentCards.length)
-    this.monsterActive = this.opponentCards[randomIndex];
-    this.background = `url(${this.monsterActive.sfondo})`;
-  }
+ngOnInit() {
+  this.battleSvc.player$.subscribe(monster => {
+    this.opponentMonster = monster
+    this.background = `url(${monster.sfondo})`
+    this.opponentMonsterReceved = true
+  })
 }
 
 

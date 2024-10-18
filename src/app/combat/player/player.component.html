@@ -16,13 +16,14 @@
 
   <div class="bg-black w-full flex flex-col items-start">
     <div
+      *ngIf="playerHp"
       class="bg-green-500 shadow-inner"
-      [ngStyle]="{ width: playerHp, height: '15px' }"
+      [ngStyle]="{ width: playerHpGraphic, height: '15px' }"
     ></div>
     <div
       *ngIf="playerStamina"
       class="bg-sky-400 shadow-inner"
-      [ngStyle]="{ width: playerStamina, height: '15px' }"
+      [ngStyle]="{ width: playerStaminaGraphic, height: '15px' }"
     ></div>
   </div>
 
@@ -35,7 +36,7 @@
         alt="atkicon"
         class="max-h-[50px] rounded-full"
       />
-      <span class="bg-black px-2 rounded-full">{{ monsterActive.atk }}</span>
+      <span class="bg-black px-2 rounded-full">{{ playerMonster.atk }}</span>
     </div>
     <div
       class="text-white flex flex-col items-center justify-center gap-2 my-2 w-1/3"
@@ -45,7 +46,7 @@
         alt="atkicon"
         class="max-h-[50px] rounded-full"
       />
-      <span class="bg-black px-2 rounded-full">{{ monsterActive.def }}</span>
+      <span class="bg-black px-2 rounded-full">{{ playerMonster.def }}</span>
     </div>
     <div
       class="text-white flex flex-col items-center justify-center gap-2 my-2 w-1/3"
@@ -55,7 +56,7 @@
         alt="atkicon"
         class="max-h-[50px] rounded-full"
       />
-      <span class="bg-black px-2 rounded-full">{{ monsterActive.speed }}</span>
+      <span class="bg-black px-2 rounded-full">{{ playerMonster.speed }}</span>
     </div>
   </div>
 

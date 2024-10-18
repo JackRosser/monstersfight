@@ -1,7 +1,6 @@
 import { BattleService } from './../../services/battle.service';
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { iMonsters } from '../../models/i-monsters';
-import { BattleService } from '../../services/battle.service';
 
 @Component({
   selector: 'app-player',
@@ -18,6 +17,8 @@ export class PlayerComponent {
 
   @Input() battleAnimationPlayer!: string;
   @Input() toggleAnimation!: boolean;
+  @Input() playerHp!: number
+  @Input() playerStamina!: number
 
   // Output per emettere eventi di animazione di battaglia
   @Output() battleAnimationEmit = new EventEmitter<{ animation: string, toggle: boolean }>();
@@ -34,7 +35,10 @@ export class PlayerComponent {
 
 playerMonster!:iMonsters
 background!:string
+playerHpGraphic:string = `${this.playerHp}%`
+playerStaminaGraphic:string = `${this.playerStamina}%`
 playerMonsterReceved:boolean = false
+
 
 ngOnInit() {
   this.battleSvc.player$.subscribe(monster => {
