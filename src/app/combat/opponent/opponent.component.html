@@ -15,8 +15,16 @@
   />
 
   <div class="bg-black w-full flex flex-col items-start">
-    <div class="bg-green-500 p-2 shadow-inner" [style]="hp"></div>
-    <div class="bg-sky-400 p-2 shadow-inner" [style]="stamina"></div>
+    <div
+      *ngIf="opponentHp"
+      class="bg-green-500 shadow-inner"
+      [ngStyle]="{ width: opponentHp, height: '15px' }"
+    ></div>
+    <div
+      *ngIf="opponentStamina"
+      class="bg-sky-400 shadow-inner"
+      [ngStyle]="{ width: opponentStamina, height: '15px' }"
+    ></div>
   </div>
 
   <div class="flex justify-evenly gap-2 p-3 w-full">

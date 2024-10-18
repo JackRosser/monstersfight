@@ -9,7 +9,6 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class OpponentComponent {
 
-  constructor(private chiamataAll:AllcardsService) {}
 
   monsterActive!: iMonsters
   background:string = ""
@@ -22,6 +21,8 @@ export class OpponentComponent {
 @Input() battleAnimationOppoent!: string
 @Input() toggleAnimation!: boolean
 @Input() opponentCards!: iMonsters[]
+@Input() opponentHp!: string
+@Input() opponentStamina!: string
 
 
 

@@ -43,9 +43,32 @@ opponentCards:iMonsters[] = []
 
 // PARTE DEL PLAYER
 monsterInCombat!: iMonsters
+playerHpValue:number = 100
+playerStaminaValue:number = 100
+
+//AGGIOrNO DINAMICAMENTE I DATI
+get playerHp(): string {
+  return `${this.playerHpValue}%`;
+}
+
+get playerStamina(): string {
+  return `${this.playerStaminaValue}%`;
+}
+
+
+// PARTE DELL'OPPONENT
+
 monsterOpponent!: iMonsters
+opponentHpValue:number = 100
+opponentStaminaValue:number = 100
 
+get opponentHp(): string {
+  return `${this.opponentHpValue}%`;
+}
 
+get opponentStamina(): string {
+  return `${this.opponentStaminaValue}%`;
+}
 
 ngOnInit(){
 
