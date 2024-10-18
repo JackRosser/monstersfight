@@ -10,7 +10,7 @@ import { AllcardsService } from '../../services/allcards.service';
 export class SelectattributeComponent {
 
 
-constructor(private cardsList:AllcardsService) {}
+constructor(private chiamataAll:AllcardsService) {}
 
 monstersList!: iMonsters[]
 icons: string[] = ["services/icons/acqua.webp", "services/icons/fuoco.webp", "services/icons/vento.webp", "services/icons/terra.webp", "services/icons/erba.webp", "services/icons/legendary.webp"]
@@ -33,7 +33,7 @@ allCardsIcon() {
 
 
 ngOnInit() {
-  this.cardsList.allCards$.subscribe(list => {
+  this.chiamataAll.allCards$.subscribe(list => {
     this.monstersList = list
   })
 }

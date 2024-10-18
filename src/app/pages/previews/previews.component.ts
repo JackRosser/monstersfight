@@ -10,7 +10,7 @@ import { DeckService } from '../../services/deck.service';
 })
 export class PreviewsComponent {
 
-constructor(private list:AllcardsService,
+constructor(private chiamataAll:AllcardsService,
   private chiamataDeckService:DeckService) {}
 
 monstersList!: iMonsters[]
@@ -75,7 +75,7 @@ addCardInDeck(card: iMonsters, id: number) {
 
 ngOnInit() {
 // VISUALIZZO TUTTE LE CARTE
-this.list.allCards$.subscribe(cardlist => {
+this.chiamataAll.allCards$.subscribe(cardlist => {
 this.monstersList = cardlist
 this.cardClones = cardlist
 

@@ -14,9 +14,9 @@ export class DeckService {
 
   deckUrl: string = "http://localhost:3000/deck";
 
-  deckService!: iMonsters[]
 
-deck$ = new BehaviorSubject<iMonsters[]>([])
+  deck$ = new BehaviorSubject<iMonsters[]>([])
+  deckService: iMonsters[] = []
 
 private getDeck() {
 this.chiamata.get<iMonsters[]>(this.deckUrl).subscribe(deckJSON => {

@@ -1,31 +1,71 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { iMonsters } from './../models/i-monsters';
-import { GlobalfetchService } from './globalfetch.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AllcardsService {
 
-  constructor(private myJson: GlobalfetchService) {
-    this.loadAllCards(); // CARICO LE CARDS
-  }
+constructor(private chiamata:HttpClient) {
+  this.getAllCards()
+}
 
-// MI CREO UN ARRAY VUOTO
-  private allCardsSubject = new BehaviorSubject<iMonsters[]>([]);
-  public allCards$: Observable<iMonsters[]> = this.allCardsSubject.asObservable();
+cardsUrl:string = "http://localhost:3000/monsters"
 
-// METTO LE CARDS NELL'ARRAY
-  private loadAllCards() {
-    this.myJson.getAllCards().subscribe((allMonsters: iMonsters[]) => {
-      const sortedMonsters = allMonsters.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      });
-      this.allCardsSubject.next(sortedMonsters);
-    });
-  }
+
+allCards$ = new BehaviorSubject<iMonsters[]>([])
+allCardsContainer: iMonsters[] = []
+
+
+private getAllCards() {
+
+this.chiamata.get<iMonsters[]>(this.cardsUrl).subscribe(allCardsJSON => {
+  this.allCardsContainer = allCardsJSON
+  this.allCards$.next(this.allCardsContainer)
+})}
+
+
+
+insertNewCard(card:Partial<iMonsters>) {
+  this.chiamata.post<iMonsters>(this.cardsUrl, card).pipe(tap(c => {
+    this.allCardsContainer.push(c)
+    this.allCards$.next(this.allCardsContainer)
+  })).subscribe()
+}
+
+deteleCard(id:number) {
+this.chiamata.delete<iMonsters>(`${this.cardsUrl}/${id}`).pipe(tap(() => {
+  this.allCardsContainer.filter(card => card.id !== id)
+  this.allCards$.next(this.allCardsContainer)
+})).subscribe()
+}
+
+modifyCard(card: Partial<iMonsters>) {
+  if (!card.id) return; // Controllo che la card abbia un ID
+
+  this.chiamata.put<iMonsters>(`${this.cardsUrl}/${card.id}`, card).pipe(
+    tap((updatedCard) => {
+      // Trova l'indice della carta da modificare
+      const index = this.allCardsContainer.findIndex(c => c.id === updatedCard.id);
+      if (index !== -1) {
+        // Aggiorna la carta nell'array
+        this.allCardsContainer[index] = updatedCard;
+        this.allCards$.next(this.allCardsContainer);
+      }
+    })
+  ).subscribe();
+}
+
+
+
 
 
 
 }
+
+
+
+

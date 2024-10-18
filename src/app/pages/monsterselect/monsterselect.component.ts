@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class MonsterselectComponent {
 
-constructor(private list:AllcardsService) {}
+constructor(private chiamataAll:AllcardsService) {}
 
 monstersList!: iMonsters[]
 monsterBg!: string
@@ -27,7 +27,7 @@ mostroVisualizzato(mostro:iMonsters) {
 }
 
 ngOnInit() {
-  this.list.allCards$.subscribe(cards => {
+  this.chiamataAll.allCards$.subscribe(cards => {
     this.monstersList = cards
     this.monsterBg = `background-image: url(${this.monstersList[0].img})`
 

@@ -61,9 +61,7 @@ this.monsterInCombat = this.playerCards[0]
 
 })
 
-this.chiamataOpponent.allCards$.pipe(
-map(cards =>)
-).subscribe()
+// FARE LA CHIAMATA PER ALLCARDS
 
 
 
