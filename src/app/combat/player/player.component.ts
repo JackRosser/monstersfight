@@ -39,7 +39,6 @@ export class PlayerComponent {
       this.monsterActive = this.playerCard[0];
       this.background = `url(${this.monsterActive.sfondo})`;
     }
-    console.log(this.playerHp);
 
   }
 }
