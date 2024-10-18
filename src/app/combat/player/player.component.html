@@ -1,5 +1,5 @@
 <div
-  *ngIf="playerCard.length > 0"
+  *ngIf="playerMonsterReceved"
   class="flex flex-col items-center border shadow-md p-3 max-h-[90vh] w-full max-w-full"
   [ngStyle]="{
     background: background,
@@ -9,14 +9,13 @@
   }"
 >
   <img
-    [src]="monsterActive.img"
+    [src]="playerMonster.img"
     alt="imagemonster"
     class="w-full max-h-[50vh] object-contain"
   />
 
   <div class="bg-black w-full flex flex-col items-start">
     <div
-      *ngIf="playerHp"
       class="bg-green-500 shadow-inner"
       [ngStyle]="{ width: playerHp, height: '15px' }"
     ></div>

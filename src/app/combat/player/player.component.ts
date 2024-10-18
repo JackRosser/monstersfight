@@ -1,5 +1,7 @@
+import { BattleService } from './../../services/battle.service';
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { iMonsters } from '../../models/i-monsters';
+import { BattleService } from '../../services/battle.service';
 
 @Component({
   selector: 'app-player',
@@ -8,17 +10,14 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class PlayerComponent {
 
-  // Mostro attivo e background
-  monsterActive!: iMonsters;
-  background: string = '';
+  constructor(private battleSvc:BattleService) {
 
+  }
+
+// GESTIONE ANIMAZIONE BATTAGLIA
 
   @Input() battleAnimationPlayer!: string;
   @Input() toggleAnimation!: boolean;
-  @Input() playerCard: iMonsters[] = [];
-  @Input() monsterInCombat!: iMonsters;
-  @Input() playerHp!: string;      // Riceve la stringa per la percentuale di HP
-  @Input() playerStamina!: string; // Riceve la stringa per la percentuale di Stamina
 
   // Output per emettere eventi di animazione di battaglia
   @Output() battleAnimationEmit = new EventEmitter<{ animation: string, toggle: boolean }>();
@@ -33,12 +32,17 @@ export class PlayerComponent {
     });
   }
 
-  // Gestione delle modifiche degli Input
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['playerCard'] && this.playerCard.length > 0) {
-      this.monsterActive = this.playerCard[0];
-      this.background = `url(${this.monsterActive.sfondo})`;
-    }
+playerMonster!:iMonsters
+background!:string
+playerMonsterReceved:boolean = false
 
-  }
+ngOnInit() {
+  this.battleSvc.player$.subscribe(monster => {
+    this.playerMonster = monster
+    this.background = `url(${monster.sfondo})`
+    this.playerMonsterReceved = true
+  })
+}
+
+
 }

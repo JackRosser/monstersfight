@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { DeckService } from '../../services/deck.service';
 import { iMonsters } from '../../models/i-monsters';
 import { map, take } from 'rxjs';
+import { BattleService } from '../../services/battle.service';
 
 @Component({
   selector: 'app-arena',
@@ -11,12 +12,7 @@ import { map, take } from 'rxjs';
 })
 export class ArenaComponent {
 
-constructor(private chiamataPlayer:DeckService, private chiamataOpponent:AllcardsService) {}
-
-playerCards:iMonsters[] = []
-opponentCards:iMonsters[] = []
-
-
+constructor(private chiamataPlayer:DeckService, private chiamataOpponent:AllcardsService, private battleSvc:BattleService) {}
 
 
 
@@ -41,29 +37,35 @@ opponentCards:iMonsters[] = []
   }
 
 
+playerInCombat!: iMonsters
+opponentInCombat!: iMonsters
+
+// PLAYER
+
+playerHp:number = 100
+playerStamina:number = 100
 
 
-playerHpValue:number = 100
-playerStaminaValue:number = 100
 
-//AGGIOrNO DINAMICAMENTE I DATI
-get playerHp(): string {
-  return `${this.playerHpValue}%`;
-}
 
-get playerStamina(): string {
-  return `${this.playerStaminaValue}%`;
-}
 
-opponentHpValue:number = 100
-opponentStaminaValue:number = 100
 
-get opponentHp(): string {
-  return `${this.opponentHpValue}%`;
-}
 
-get opponentStamina(): string {
-  return `${this.opponentStaminaValue}%`;
+ngOnInit() {
+
+this.chiamataPlayer.deck$.subscribe(cardPlayerInCombat => {
+this.chiamataOpponent.allCards$.subscribe(cardOpponentInCombat => {
+  this.playerInCombat = cardPlayerInCombat[0]
+  this.opponentInCombat = cardOpponentInCombat[0]
+
+  this.battleSvc.sendPlayerCards(this.playerInCombat)
+  this.battleSvc.sendOpponentCards(this.opponentInCombat)
+
+})
+
+})
+
+
 }
 
 
