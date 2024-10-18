@@ -1,5 +1,6 @@
 export interface iBattle {
-     playerHp: number,
+  id: number,
+  playerHp: number,
       playerStamina: number,
       opponentHp: number,
       opponentStamina: number

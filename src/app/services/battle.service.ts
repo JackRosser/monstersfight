@@ -53,56 +53,55 @@ this.opponentCard.next(card)
 private playerHp = new BehaviorSubject<number>(100)
 playerHp$ = this.playerHp.asObservable()
 
-reduceHpPlayer(value:number) {
+reduceHpPlayer(value:number, statisticheAggiornate:iBattle) {
   this.playerHp.next(value)
-  this.updateBattleData();
+  this.updateBattleData(statisticheAggiornate);
 }
 
 private playerStamina = new BehaviorSubject<number>(100)
 playerStamina$ = this.playerStamina.asObservable()
 
-reduceStaminaPlayer(value:number) {
+reduceStaminaPlayer(value:number, statisticheAggiornate:iBattle) {
   this.playerStamina.next(value)
-  this.updateBattleData();
+  this.updateBattleData(statisticheAggiornate);
 }
 
 private opponentHp = new BehaviorSubject<number>(100)
 opponentHp$ = this.opponentHp.asObservable()
 
-reduceHpOpponent(value:number) {
+reduceHpOpponent(value:number, statisticheAggiornate:iBattle) {
   this.opponentHp.next(value)
-  this.updateBattleData();
+  this.updateBattleData(statisticheAggiornate);
 }
 
 private opponentStamina = new BehaviorSubject<number>(100)
 opponentStamina$ = this.opponentStamina.asObservable()
 
-reduceStaminaOpponent(value:number) {
+reduceStaminaOpponent(value:number, statisticheAggiornate:iBattle) {
   this.opponentStamina.next(value)
-  this.updateBattleData();
+  this.updateBattleData(statisticheAggiornate);
 }
 
+// PARTE IN CUI CARICO I DATI NEL SERVER
+
 private loadBattleData() {
-  this.http.get<iBattle>(this.apiUrl)
+  this.http.get<iBattle[]>(this.apiUrl)
     .subscribe(data => {
-      this.playerHp.next(data.playerHp);
-      this.playerStamina.next(data.playerStamina);
-      this.opponentHp.next(data.opponentHp);
-      this.opponentStamina.next(data.opponentStamina);
+      if (data && data.length > 0) {
+        const battle = data[0];
+        this.playerHp.next(battle.playerHp);
+        this.playerStamina.next(battle.playerStamina);
+        this.opponentHp.next(battle.opponentHp);
+        this.opponentStamina.next(battle.opponentStamina);
+      }
     });
 }
 
-private updateBattleData() {
-  const battleData: iBattle = {
-    playerHp: this.playerHp.getValue(),
-    playerStamina: this.playerStamina.getValue(),
-    opponentHp: this.opponentHp.getValue(),
-    opponentStamina: this.opponentStamina.getValue(),
-  };
-
-  this.http.put(this.apiUrl, battleData)
-  .subscribe()
+private updateBattleData(statistiche:iBattle) {
+this.http.put<iBattle>(`${this.apiUrl}/${statistiche.id}`, statistiche).subscribe()
 }
+
+
 
 
 }

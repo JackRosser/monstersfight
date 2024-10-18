@@ -1463,6 +1463,7 @@
   ],
   "battle": [
     {
+      "id": 1,
       "playerHp": 100,
       "playerStamina": 100,
       "opponentHp": 100,
