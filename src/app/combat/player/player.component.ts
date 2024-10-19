@@ -35,10 +35,10 @@ export class PlayerComponent {
 
 playerMonster!:iMonsters
 background!:string
-playerHpGraphic!:string
-playerStaminaGraphic!:string
 playerHp!: number
 playerStamina!: number
+playerHpGraphic!:string
+playerStaminaGraphic!:string
 
 ngOnInit() {
   this.battleSvc.player$.subscribe(monster => {
@@ -47,8 +47,16 @@ ngOnInit() {
     this.background = `url(${monster.sfondo})`
     }
 
+ })
 
-  })
+ this.battleSvc.playerStatistics$.subscribe(statistics => {
+  this.playerHp = statistics.hp
+  this.playerStamina = statistics.stamina
+  if(this.playerHp && this.playerStamina) {
+this.playerHpGraphic = `${this.playerHp}%`
+this.playerStaminaGraphic = `${this.playerStamina}%`
+  }
+ })
 
 }
 
