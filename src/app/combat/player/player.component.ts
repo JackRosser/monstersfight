@@ -40,6 +40,10 @@ playerStamina!: number
 playerHpGraphic!:string
 playerStaminaGraphic!:string
 
+// PARTE DI OPPONENT
+
+opponentMonster!:iMonsters
+
 ngOnInit() {
   this.battleSvc.player$.subscribe(monster => {
     this.playerMonster = monster
@@ -57,6 +61,11 @@ this.playerHpGraphic = `${this.playerHp}%`
 this.playerStaminaGraphic = `${this.playerStamina}%`
   }
  })
+
+this.battleSvc.opponent$.subscribe(monster => {
+  this.opponentMonster = monster
+})
+
 
 }
 

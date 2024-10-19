@@ -65,6 +65,8 @@ opponentStamina!:number
 
 ngOnInit() {
 
+// QUA DECIDO I MOSTRI ATTIVI VISUALIZZATI A SCHERMO
+
 this.chiamataPlayer.deck$.subscribe(cardPlayerInCombat => {
 this.chiamataOpponent.allCards$.subscribe(cardOpponentInCombat => {
   this.playerInCombat = cardPlayerInCombat[0]
