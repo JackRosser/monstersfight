@@ -17,7 +17,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 1,
@@ -36,7 +37,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 2,
@@ -55,7 +57,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 3,
@@ -74,7 +77,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 4,
@@ -93,7 +97,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 5,
@@ -112,7 +117,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 6,
@@ -131,7 +137,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 7,
@@ -150,7 +157,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 8,
@@ -169,7 +177,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 9,
@@ -188,7 +197,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 10,
@@ -207,7 +217,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 11,
@@ -226,7 +237,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 12,
@@ -245,7 +257,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 13,
@@ -264,7 +277,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 14,
@@ -283,7 +297,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 15,
@@ -302,7 +317,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 16,
@@ -321,7 +337,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 17,
@@ -340,7 +357,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 18,
@@ -359,7 +377,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 19,
@@ -378,7 +397,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 20,
@@ -397,7 +417,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 21,
@@ -416,7 +437,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 22,
@@ -435,7 +457,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 23,
@@ -454,7 +477,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 24,
@@ -473,7 +497,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 25,
@@ -492,7 +517,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 26,
@@ -511,7 +537,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 27,
@@ -530,7 +557,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 28,
@@ -549,7 +577,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 29,
@@ -568,7 +597,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/erba.webp",
-      "debolezza": "terra"
+      "debolezza": "terra",
+      "forza": "acqua"
     },
     {
       "id": 30,
@@ -587,7 +617,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 31,
@@ -606,7 +637,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 32,
@@ -625,7 +657,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 33,
@@ -644,7 +677,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 34,
@@ -663,7 +697,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 35,
@@ -682,7 +717,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 36,
@@ -701,7 +737,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 37,
@@ -720,7 +757,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 38,
@@ -739,7 +777,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 39,
@@ -758,7 +797,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 40,
@@ -777,7 +817,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 41,
@@ -796,7 +837,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 42,
@@ -815,7 +857,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 43,
@@ -834,7 +877,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 44,
@@ -853,7 +897,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 45,
@@ -872,7 +917,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 46,
@@ -891,7 +937,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 47,
@@ -910,7 +957,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 48,
@@ -929,7 +977,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 49,
@@ -948,7 +997,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 50,
@@ -967,7 +1017,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 51,
@@ -986,7 +1037,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 52,
@@ -1005,7 +1057,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 53,
@@ -1024,7 +1077,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 54,
@@ -1043,7 +1097,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/vento.webp",
-      "debolezza": "fuoco"
+      "debolezza": "fuoco",
+      "forza": "terra"
     },
     {
       "id": 55,
@@ -1062,7 +1117,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/legendary.webp",
-      "debolezza": "niente"
+      "debolezza": "niente",
+      "forza": "tutto"
     },
     {
       "id": 56,
@@ -1081,7 +1137,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/legendary.webp",
-      "debolezza": "niente"
+      "debolezza": "niente",
+      "forza": "tutto"
     },
     {
       "id": 57,
@@ -1100,7 +1157,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/legendary.webp",
-      "debolezza": "niente"
+      "debolezza": "niente",
+      "forza": "tutto"
     },
     {
       "id": 58,
@@ -1119,7 +1177,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/legendary.webp",
-      "debolezza": "niente"
+      "debolezza": "niente",
+      "forza": "tutto"
     },
     {
       "id": 59,
@@ -1138,7 +1197,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/legendary.webp",
-      "debolezza": "niente"
+      "debolezza": "niente",
+      "forza": "tutto"
     },
     {
       "id": 60,
@@ -1157,7 +1217,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 61,
@@ -1176,7 +1237,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 62,
@@ -1195,7 +1257,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 63,
@@ -1214,7 +1277,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 64,
@@ -1233,7 +1297,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 65,
@@ -1252,7 +1317,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 66,
@@ -1271,7 +1337,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 67,
@@ -1290,7 +1357,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 68,
@@ -1309,7 +1377,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 69,
@@ -1328,7 +1397,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 70,
@@ -1347,7 +1417,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 71,
@@ -1366,7 +1437,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 72,
@@ -1385,7 +1457,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 73,
@@ -1404,7 +1477,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     },
     {
       "id": 74,
@@ -1423,7 +1497,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/acqua.webp",
-      "debolezza": "erba"
+      "debolezza": "erba",
+      "forza": "fuoco"
     }
   ],
   "deck": [
@@ -1444,7 +1519,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/terra.webp",
-      "debolezza": "vento"
+      "debolezza": "vento",
+      "forza": "erba"
     },
     {
       "id": 32,
@@ -1463,7 +1539,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 31,
@@ -1482,7 +1559,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 33,
@@ -1501,7 +1579,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 38,
@@ -1520,7 +1599,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     },
     {
       "id": 37,
@@ -1539,7 +1619,8 @@
       "locked": false,
       "indeck": false,
       "sfondo": "services/icons/arena/sfondi/fuoco.webp",
-      "debolezza": "acqua"
+      "debolezza": "acqua",
+      "forza": "vento"
     }
   ],
   "battle": [

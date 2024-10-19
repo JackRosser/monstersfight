@@ -27,7 +27,7 @@ export class PlayerComponent {
     this.battleAnimationPlayer = 'battle 500ms ease-in-out';
     this.toggleAnimation = true;
     // QUA INIZIANO I CALCOLi PER I DANNI
-    if() {
+    if(this.playerMonster.debolezza) {
 
     }
     this.battleEmit.emit({

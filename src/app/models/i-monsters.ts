@@ -16,5 +16,6 @@ export interface iMonsters {
   indeck: boolean,
   sfondo: string
   debolezza:string
+  forza:string
 }
 
