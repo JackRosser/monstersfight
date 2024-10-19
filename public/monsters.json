@@ -1463,11 +1463,14 @@
   ],
   "battle": [
     {
-      "id": 1,
-      "playerHp": 100,
-      "playerStamina": 100,
-      "opponentHp": 100,
-      "opponentStamina": 100
+      "id": 0,
+      "hp": 100,
+      "stamina": 100
+    },
+    {
+     "id": 1,
+      "hp": 100,
+      "stamina": 100
     }
   ]
 }

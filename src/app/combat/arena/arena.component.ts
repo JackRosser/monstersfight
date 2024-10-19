@@ -41,8 +41,6 @@ opponentStamina!:number
     this.battleAnimationOpponent = "none";
     this.toggleAnimation = event.toggle
     this.playerHp = event.danno
-    this.opponentHp = 50
-    this.battleSvc.reduceHpOpponent(this.opponentHp)
 
 
 

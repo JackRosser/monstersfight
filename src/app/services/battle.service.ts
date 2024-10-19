@@ -1,9 +1,7 @@
+import { iBattle } from './../models/battle';
 import { iMonsters } from './../models/i-monsters';
 import { Injectable } from '@angular/core';
-import { DeckService } from './deck.service';
-import { AllcardsService } from './allcards.service';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { iBattle } from '../models/battle';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -11,10 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BattleService {
 
-  private apiUrl = 'http://localhost:3000/battle';
+  private battleUrl = 'http://localhost:3000/battle';
 
   constructor(private http:HttpClient) {
-    this.loadBattleData();
+this.getPlayerStatistic(), this.getOpponentStatistic()
   }
 
 startObject: iMonsters = {
@@ -50,58 +48,83 @@ sendOpponentCards(card:iMonsters) {
 this.opponentCard.next(card)
 }
 
-private playerHp = new BehaviorSubject<number>(100)
-playerHp$ = this.playerHp.asObservable()
+// HP E STAMINA PLAYER
 
-reduceHpPlayer(value:number, statisticheAggiornate:iBattle) {
-  this.playerHp.next(value)
-  this.updateBattleData(statisticheAggiornate);
+startStatistic: iBattle = {
+  id: 0,
+  hp: 0,
+  stamina: 0
 }
 
-private playerStamina = new BehaviorSubject<number>(100)
-playerStamina$ = this.playerStamina.asObservable()
+private playerStatistics = new BehaviorSubject<iBattle>(this.startStatistic)
+playerStatistics$ = this.playerStatistics.asObservable()
 
-reduceStaminaPlayer(value:number, statisticheAggiornate:iBattle) {
-  this.playerStamina.next(value)
-  this.updateBattleData(statisticheAggiornate);
+
+updateHpPlayer(update:number):void {
+
+// RECUPERO I DATI ATTUALI DEL BEHAVIOR
+const currentStats:iBattle = this.playerStatistics.getValue()
+// CREO UN CLONE IN CUI MOdIficO SOLO IL VALORE CHE MI SERVE
+const updateHp:iBattle = {...currentStats, hp: update}
+// UPDATO IL CLONE
+this.playerStatistics.next(updateHp)
+
 }
 
-private opponentHp = new BehaviorSubject<number>(100)
-opponentHp$ = this.opponentHp.asObservable()
+updateStaminaPlayer(update:number):void {
 
-reduceHpOpponent(value:number, statisticheAggiornate:iBattle) {
-  this.opponentHp.next(value)
-  this.updateBattleData(statisticheAggiornate);
+  const currentStats:iBattle = this.playerStatistics.getValue()
+  const updateHp:iBattle = {...currentStats, stamina: update}
+  this.playerStatistics.next(updateHp)
+
+  }
+
+
+// HP E STAMINA OPPONENT
+
+private opponentStatistics = new BehaviorSubject<iBattle>(this.startStatistic)
+opponentStatistics$ = this.opponentStatistics.asObservable()
+
+
+updateHpOpponent(update:number):void {
+
+  const currentStats:iBattle = this.opponentStatistics.getValue()
+  const updateHp:iBattle = {...currentStats, stamina: update}
+  this.playerStatistics.next(updateHp)
+
+  }
+
+  updateStaminaOpponent(update:number):void {
+
+    const currentStats:iBattle = this.opponentStatistics.getValue()
+    const updateHp:iBattle = {...currentStats, stamina: update}
+    this.playerStatistics.next(updateHp)
+
+    }
+
+// PARTE CHE SI RIFERISCE AL SERVER
+// QUI CARICO IL MIO OGGETTO
+
+private getPlayerStatistic() {
+  this.http.get<iBattle[]>(this.battleUrl).subscribe(dati => {
+this.playerStatistics.next(dati[0])
+  })
 }
 
-private opponentStamina = new BehaviorSubject<number>(100)
-opponentStamina$ = this.opponentStamina.asObservable()
-
-reduceStaminaOpponent(value:number, statisticheAggiornate:iBattle) {
-  this.opponentStamina.next(value)
-  this.updateBattleData(statisticheAggiornate);
+private getOpponentStatistic() {
+  this.http.get<iBattle[]>(this.battleUrl).subscribe(dati => {
+this.opponentStatistics.next(dati[1])
+  })
 }
 
-// PARTE IN CUI CARICO I DATI NEL SERVER
+// QUI ESEGUO L'UPDATE
 
-private loadBattleData() {
-  this.http.get<iBattle[]>(this.apiUrl)
-    .subscribe(data => {
-      if (data && data.length > 0) {
-        const battle = data[0];
-        this.playerHp.next(battle.playerHp);
-        this.playerStamina.next(battle.playerStamina);
-        this.opponentHp.next(battle.opponentHp);
-        this.opponentStamina.next(battle.opponentStamina);
-      }
-    });
+updatePlayer(objModified:iBattle) {
+this.http.put<Partial<iBattle>>(`${this.battleUrl}/${objModified.id}`, objModified)
 }
 
-private updateBattleData(statistiche:iBattle) {
-this.http.put<iBattle>(`${this.apiUrl}/${statistiche.id}`, statistiche).subscribe()
-}
-
-
-
+updateOpponent(objModified:iBattle) {
+  this.http.put<Partial<iBattle>>(`${this.battleUrl}/${objModified.id}`, objModified)
+  }
 
 }
