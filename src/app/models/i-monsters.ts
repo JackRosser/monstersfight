@@ -4,7 +4,7 @@ export interface iMonsters {
   type: string,
   description: string,
   principale: string,
-  debolezza: string
+  minore: string
   hp: number,
   atk: number,
   def: number,
@@ -15,5 +15,6 @@ export interface iMonsters {
   locked: boolean
   indeck: boolean,
   sfondo: string
+  debolezza:string
 }
 

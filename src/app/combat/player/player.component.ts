@@ -20,16 +20,21 @@ export class PlayerComponent {
 
 
   // Output per emettere eventi di animazione di battaglia
-  @Output() battleEmit = new EventEmitter<{ animation: string, toggle: boolean, danno:number }>();
+  @Output() battleEmit = new EventEmitter<{ animation: string, toggle: boolean, damagePlayer:number, damageOpponent:number }>();
 
   // Funzione che emette l'evento per l'animazione
   battleOutput() {
     this.battleAnimationPlayer = 'battle 500ms ease-in-out';
     this.toggleAnimation = true;
+    // QUA INIZIANO I CALCOLi PER I DANNI
+    if() {
+
+    }
     this.battleEmit.emit({
       animation: this.battleAnimationPlayer,
       toggle: this.toggleAnimation,
-      danno: this.playerMonster.atk
+      damagePlayer: this.damagePlayer,
+      damageOpponent: this.damageOpponent
     });
   }
 
@@ -43,6 +48,11 @@ playerStaminaGraphic!:string
 // PARTE DI OPPONENT
 
 opponentMonster!:iMonsters
+
+// CALCOLO DANNI
+
+damagePlayer!:number
+damageOpponent!:number
 
 ngOnInit() {
   this.battleSvc.player$.subscribe(monster => {
