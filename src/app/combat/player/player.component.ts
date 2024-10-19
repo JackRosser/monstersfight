@@ -47,19 +47,6 @@ ngOnInit() {
     this.background = `url(${monster.sfondo})`
     }
 
-    this.battleSvc.playerHp$.subscribe(hp => {
-      this.playerHp = hp
-      if(this.playerHp) {
-        this.playerHpGraphic = `${this.playerHp}%`
-      }
-    })
-
-    this.battleSvc.playerStamina$.subscribe(stamina => {
-      this.playerStamina = stamina
-      if(this.playerStamina) {
-        this.playerStaminaGraphic = `${this.playerStamina}%`
-      }
-    })
 
   })
 

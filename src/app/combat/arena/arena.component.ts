@@ -2,8 +2,8 @@ import { AllcardsService } from './../../services/allcards.service';
 import { Component } from '@angular/core';
 import { DeckService } from '../../services/deck.service';
 import { iMonsters } from '../../models/i-monsters';
-import { map, take } from 'rxjs';
 import { BattleService } from '../../services/battle.service';
+import { iBattle } from '../../models/battle';
 
 @Component({
   selector: 'app-arena',
@@ -19,12 +19,15 @@ constructor(private chiamataPlayer:DeckService, private chiamataOpponent:Allcard
 playerInCombat!: iMonsters
 opponentInCombat!: iMonsters
 
-// PLAYER
+// DATI COMPLESSIVI STATISTICHE
+
+playerStatistics!:iBattle
+opponentStatistics!:iBattle
+
+// DATI INDIVIDUALI STATISTICHE
 
 playerHp!:number
 playerStamina!:number
-
-// OPPONENT
 
 opponentHp!:number
 opponentStamina!:number
@@ -74,21 +77,15 @@ this.chiamataOpponent.allCards$.subscribe(cardOpponentInCombat => {
 
 })
 
-this.battleSvc.playerHp$.subscribe(hp => {
-  this.playerHp = hp
+this.battleSvc.playerStatistics$.subscribe(statistics => {
+  this.playerStatistics = statistics
+
 })
 
-this.battleSvc.playerStamina$.subscribe(stamina => {
-  this.playerStamina = stamina
+this.battleSvc.opponentStatistics$.subscribe(statistics => {
+  this.opponentStatistics = statistics
 })
 
-this.battleSvc.opponentHp$.subscribe(hp => {
-  this.opponentHp = hp
-})
-
-this.battleSvc.opponentStamina$.subscribe(stamina => {
-  this.opponentStamina = stamina
-})
 
 }
 

@@ -34,19 +34,6 @@ ngOnInit() {
       }
   })
 
-  this.battleSvc.opponentHp$.subscribe(hp => {
-    this.opponentHp = hp
-    if(this.opponentHp) {
-      this.opponentHpGraphic = `${this.opponentHp}%`
-    }
-  })
-
-  this.battleSvc.opponentStamina$.subscribe(stamina => {
-    this.opponentStamina = stamina
-    if(this.opponentStamina) {
-      this.opponentStaminaGraphic = `${this.opponentStamina}%`
-    }
-  })
 
 
 
