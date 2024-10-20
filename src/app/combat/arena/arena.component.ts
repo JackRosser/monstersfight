@@ -50,17 +50,12 @@ test(newHp:number):void {
 //GESTISCO IL MOSTRO MORTO___________________________________________________
 if (this.playerInGame.hp <= 0) {
   this.playerClone.splice(0, 1);
-  if (this.playerClone.length > 0) {
-    this.playerInGame = this.playerClone[0];
-  }
+  this.playerInGame = this.playerClone[0]
 }
 
 if (this.opponentInGame.hp <= 0) {
   this.opponentClone.splice(0, 1);
-  if (this.opponentClone.length > 0) {
-    this.opponentInGame = this.opponentClone[0];
-  }
-}
+  this.opponentInGame = this.opponentClone[0]}
 
 //CALCOLO I DANNI E AGGIORNO LE BARRE
 
