@@ -20,66 +20,36 @@ export class PlayerComponent {
 
 
   // ESPORTO IL MOMENTO DEI DANNI COMPRESO DI ANIMAZIONE
-  @Output() battleEmit = new EventEmitter<{ animation: string, toggle: boolean, damagePlayer:number, damageOpponent:number }>();
+  @Output() battleEmit = new EventEmitter<{ animation: string, toggle: boolean, damagePlayer:number, damageOpponent:number, staminaPlayer:number, staminaOpponent:number }>();
 
   // Funzione che emette l'evento per l'animazione
   battleOutput() {
     this.battleAnimationPlayer = 'battle 500ms ease-in-out';
     this.toggleAnimation = true;
 
-// QUA INIZIANO I CALCOLI PER I DANNI DEL PLAYER
+// TOLGO HP
 
-// AVVERSARIO LEGGENDARIO: Aumento fisso per attacco e difesa
-if (this.opponentInGame.forza === "tutto") {
-  this.opponentInGame.atk += this.opponentInGame.atk * 0.2; // Aumento del 20% di attacco
-  this.opponentInGame.def += this.opponentInGame.def * 0.2; // Aumento del 20% di difesa
-}
+const dannoRicevutoDalPlayer = this.opponentInGame.atk - (this.playerInGame.def * 0.1);
+this.playerInGame.hp -= dannoRicevutoDalPlayer;
+this.damagePlayer = this.playerInGame.hp;
 
-// AVVERSARIO FORTE CONTRO DI ME E PIÙ VELOCE: Aumento ulteriore
-if (this.playerInGame.debolezza === this.opponentInGame.forza && this.playerInGame.speed < this.opponentInGame.speed) {
-  this.opponentInGame.atk *= 1.5 * 1.2; // Aumento del 150% seguito dal 20% in più
-}
+const dannoRicevutoDaOpponent = this.opponentInGame.atk - (this.playerInGame.def * 0.1);
+this.opponentInGame.hp -= dannoRicevutoDaOpponent;
+this.damageOpponent = this.opponentInGame.hp;
 
-// AVVERSARIO PIÙ VELOCE DI ME: Aumento ulteriore, se non già incrementato
-if (this.playerInGame.speed < this.opponentInGame.speed && !(this.playerInGame.debolezza === this.opponentInGame.forza)) {
-  this.opponentInGame.atk += this.opponentInGame.atk * 0.2; // Aumento del 20%
-}
+// TOLGO STAMINA
 
-// DANNO BASE: Calcolo del danno inflitto al giocatore
-const damageToPlayer = this.opponentInGame.atk - (this.playerInGame.def * 0.15);
-this.damagePlayer = this.playerInGame.hp -= damageToPlayer;
-
-
-// QUA INIZIANO I CALCOLI PER I DANNI DELL'OPPO
-
-// IO SONO LEGGENDARIO: Aumento fisso per attacco e difesa
-if (this.playerInGame.forza === "tutto") {
-  this.playerInGame.atk += this.playerInGame.atk * 0.2; // Aumento del 20% di attacco
-  this.playerInGame.def += this.playerInGame.def * 0.2; // Aumento del 20% di difesa
-}
-
-// IO SONO PIÙ FORTE E PIÙ VELOCE: Aumento ulteriore
-if (this.opponentInGame.debolezza === this.playerInGame.forza && this.opponentInGame.speed < this.playerInGame.speed) {
-  this.playerInGame.atk *= 1.5 * 1.2; // Aumento del 150% seguito dal 20% in più
-}
-
-// IO SONO PIÙ VELOCE: Aumento ulteriore, se non già incrementato
-if (this.opponentInGame.speed < this.playerInGame.speed && !(this.opponentInGame.debolezza === this.playerInGame.forza)) {
-  this.playerInGame.atk += this.playerInGame.atk * 0.2; // Aumento del 20%
-}
-
-// DANNO BASE: Calcolo del danno inflitto all'avversario
-const damageToOpponent = this.playerInGame.atk - (this.opponentInGame.def * 0.15);
-this.damageOpponent = this.opponentInGame.hp -= damageToOpponent;
-
-
+this.newStaminaPlayer = this.playerInGame.stamina - (this.playerInGame.stamina * 0.15)
+this.newStaminaOpponent = this.opponentInGame.stamina - (this.opponentInGame.stamina * 0.15)
 
 // INVIO DATI_____________________________
 this.battleEmit.emit({
       animation: this.battleAnimationPlayer,
       toggle: this.toggleAnimation,
       damagePlayer: this.damagePlayer,
-      damageOpponent: this.damageOpponent
+      damageOpponent: this.damageOpponent,
+      staminaPlayer: this.newStaminaPlayer,
+      staminaOpponent: this.newStaminaOpponent
     });
   }
 
@@ -96,7 +66,8 @@ barraStaminaPlayer!:string
 
 damagePlayer!:number
 damageOpponent!:number
-
+newStaminaPlayer!:number
+newStaminaOpponent!:number
 
 // ASSEGNO I CAMBIAMENTI CON NGONCHANGES
 
