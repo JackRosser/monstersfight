@@ -1,4 +1,3 @@
-import { BattleService } from './../../services/battle.service';
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { iMonsters } from '../../models/i-monsters';
 
@@ -9,7 +8,7 @@ import { iMonsters } from '../../models/i-monsters';
 })
 export class PlayerComponent {
 
-  constructor(private battleSvc:BattleService) {
+  constructor() {
 
   }
 
@@ -30,47 +29,47 @@ export class PlayerComponent {
 // QUA INIZIANO I CALCOLI PER I DANNI DEL PLAYER
 
 // AVVERSARIO LEGGENDARIO: Aumento fisso per attacco e difesa
-if (this.opponentMonster.forza === "tutto") {
-  this.opponentMonster.atk += this.opponentMonster.atk * 0.2; // Aumento del 20% di attacco
-  this.opponentMonster.def += this.opponentMonster.def * 0.2; // Aumento del 20% di difesa
+if (this.opponentInGame.forza === "tutto") {
+  this.opponentInGame.atk += this.opponentInGame.atk * 0.2; // Aumento del 20% di attacco
+  this.opponentInGame.def += this.opponentInGame.def * 0.2; // Aumento del 20% di difesa
 }
 
 // AVVERSARIO FORTE CONTRO DI ME E PIÙ VELOCE: Aumento ulteriore
-if (this.playerMonster.debolezza === this.opponentMonster.forza && this.playerMonster.speed < this.opponentMonster.speed) {
-  this.opponentMonster.atk *= 1.5 * 1.2; // Aumento del 150% seguito dal 20% in più
+if (this.playerInGame.debolezza === this.opponentInGame.forza && this.playerInGame.speed < this.opponentInGame.speed) {
+  this.opponentInGame.atk *= 1.5 * 1.2; // Aumento del 150% seguito dal 20% in più
 }
 
 // AVVERSARIO PIÙ VELOCE DI ME: Aumento ulteriore, se non già incrementato
-if (this.playerMonster.speed < this.opponentMonster.speed && !(this.playerMonster.debolezza === this.opponentMonster.forza)) {
-  this.opponentMonster.atk += this.opponentMonster.atk * 0.2; // Aumento del 20%
+if (this.playerInGame.speed < this.opponentInGame.speed && !(this.playerInGame.debolezza === this.opponentInGame.forza)) {
+  this.opponentInGame.atk += this.opponentInGame.atk * 0.2; // Aumento del 20%
 }
 
 // DANNO BASE: Calcolo del danno inflitto al giocatore
-const damageToPlayer = this.opponentMonster.atk - (this.playerMonster.def * 0.15);
-this.damagePlayer = this.playerMonster.hp -= damageToPlayer;
+const damageToPlayer = this.opponentInGame.atk - (this.playerInGame.def * 0.15);
+this.damagePlayer = this.playerInGame.hp -= damageToPlayer;
 
 
 // QUA INIZIANO I CALCOLI PER I DANNI DELL'OPPO
 
 // IO SONO LEGGENDARIO: Aumento fisso per attacco e difesa
-if (this.playerMonster.forza === "tutto") {
-  this.playerMonster.atk += this.playerMonster.atk * 0.2; // Aumento del 20% di attacco
-  this.playerMonster.def += this.playerMonster.def * 0.2; // Aumento del 20% di difesa
+if (this.playerInGame.forza === "tutto") {
+  this.playerInGame.atk += this.playerInGame.atk * 0.2; // Aumento del 20% di attacco
+  this.playerInGame.def += this.playerInGame.def * 0.2; // Aumento del 20% di difesa
 }
 
 // IO SONO PIÙ FORTE E PIÙ VELOCE: Aumento ulteriore
-if (this.opponentMonster.debolezza === this.playerMonster.forza && this.opponentMonster.speed < this.playerMonster.speed) {
-  this.playerMonster.atk *= 1.5 * 1.2; // Aumento del 150% seguito dal 20% in più
+if (this.opponentInGame.debolezza === this.playerInGame.forza && this.opponentInGame.speed < this.playerInGame.speed) {
+  this.playerInGame.atk *= 1.5 * 1.2; // Aumento del 150% seguito dal 20% in più
 }
 
 // IO SONO PIÙ VELOCE: Aumento ulteriore, se non già incrementato
-if (this.opponentMonster.speed < this.playerMonster.speed && !(this.opponentMonster.debolezza === this.playerMonster.forza)) {
-  this.playerMonster.atk += this.playerMonster.atk * 0.2; // Aumento del 20%
+if (this.opponentInGame.speed < this.playerInGame.speed && !(this.opponentInGame.debolezza === this.playerInGame.forza)) {
+  this.playerInGame.atk += this.playerInGame.atk * 0.2; // Aumento del 20%
 }
 
 // DANNO BASE: Calcolo del danno inflitto all'avversario
-const damageToOpponent = this.playerMonster.atk - (this.opponentMonster.def * 0.15);
-this.damageOpponent = this.opponentMonster.hp -= damageToOpponent;
+const damageToOpponent = this.playerInGame.atk - (this.opponentInGame.def * 0.15);
+this.damageOpponent = this.opponentInGame.hp -= damageToOpponent;
 
 
 
@@ -87,41 +86,32 @@ this.battleEmit.emit({
 @Input() playerInGame!:iMonsters
 @Input() opponentInGame!:iMonsters
 
+player!:iMonsters
 background!:string
 barraHpPlayer!:string
 barraStaminaPlayer!:string
-
-// PARTE DI OPPONENT
-
-opponentMonster!:iMonsters
 
 // CALCOLO DANNI
 
 damagePlayer!:number
 damageOpponent!:number
 
-ngOnInit() {
-  if(this.playerInGame) {
-    this.background = `url(${this.playerInGame.sfondo})`
-    this.barraHpPlayer = `${this.playerInGame.barraHp}%`
-    this.barraStaminaPlayer = `${this.playerInGame.barraStamina}%`
+
+// ASSEGNO I CAMBIAMENTI CON NGONCHANGES
+
+
+ngOnChanges(changes: SimpleChanges) {
+
+  if (changes['playerInGame'] && this.playerInGame) {
+    this.updatePlayerData();
   }
+}
 
- }
-
- this.battleSvc.playerStatistics$.subscribe(statistics => {
-  this.playerHp = statistics.hp
-  this.playerStamina = statistics.stamina
-  if(this.playerHp && this.playerStamina) {
-this.playerHpGraphic = `${this.playerHp}%`
-this.playerStaminaGraphic = `${this.playerStamina}%`
-  }
- })
-
-this.battleSvc.opponent$.subscribe(monster => {
-  this.opponentMonster = monster
-})
-
+updatePlayerData() {
+  this.background = `url(${this.playerInGame.sfondo})`;
+  this.barraHpPlayer = `${this.playerInGame.barraHp}%`;
+  this.barraStaminaPlayer = `${this.playerInGame.barraStamina}%`;
+}
 
 }
 

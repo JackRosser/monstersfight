@@ -21,14 +21,18 @@ opponentStaminaBar!: string
 barraHpOpponent!:string
 barraStaminaOpponent!:string
 
-ngOnInit() {
-  if(this.opponentInGame) {
-    this.background = `url(${this.opponentInGame.sfondo})`
-    this.barraHpOpponent = `${this.opponentInGame.barraHp}%`
-    this.barraStaminaOpponent = `${this.opponentInGame.barraStamina}%`
-  }
+ngOnChanges(changes: SimpleChanges) {
 
- }
+  if (changes['opponentInGame'] && this.opponentInGame) {
+    this.updatePlayerData();
+  }
+}
+
+updatePlayerData() {
+  this.background = `url(${this.opponentInGame.sfondo})`;
+  this.barraHpOpponent = `${this.opponentInGame.barraHp}%`;
+  this.barraStaminaOpponent = `${this.opponentInGame.barraStamina}%`;
+}
 
 
 }
