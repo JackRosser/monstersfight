@@ -29,6 +29,7 @@ opponentStatistics!:iBattle
 playerHp!:number
 playerStamina!:number
 
+
 opponentHp!:number
 opponentStamina!:number
 
@@ -38,12 +39,15 @@ opponentStamina!:number
   battleAnimationOpponent: string = "none";
   toggleAnimation: boolean = false;
 
-  battle(event: {animation:string, toggle:boolean, danno:number}) {
+  battle(event: {animation:string, toggle:boolean, damagePlayer:number, damageOpponent:number}) {
 
     this.battleAnimationPlayer = "none";
     this.battleAnimationOpponent = "none";
     this.toggleAnimation = event.toggle
-    this.playerHp = event.danno
+    // INVIO IL DANNO DI PLAYER E OPPONENT AL BEHAVIOR AGGIORNANDOLO
+    this.battleSvc.updateHpPlayer(event.damagePlayer)
+    this.battleSvc.updateHpOpponent(event.damageOpponent)
+    //INVIO LE NUOVE CONDIZIONI DEL MOSTRO
 
 
 

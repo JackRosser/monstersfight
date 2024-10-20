@@ -5,6 +5,8 @@ export interface iMonsters {
   description: string,
   principale: string,
   minore: string
+  barraHp: number,
+  barraStamina: number,
   hp: number,
   atk: number,
   def: number,

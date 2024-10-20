@@ -1,4 +1,3 @@
-import { iBattle } from './../models/battle';
 import { iMonsters } from './../models/i-monsters';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -9,122 +8,67 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BattleService {
 
-  private battleUrl = 'http://localhost:3000/battle';
+  private playerUrl = 'http://localhost:3000/deckPlayer';
+  private opponentUrl = 'http://localhost:3000/deckOpponent';
 
-  constructor(private http:HttpClient) {
-this.getPlayerStatistic(), this.getOpponentStatistic()
+  constructor(private callPlayer:HttpClient, private callOpponent:HttpClient) {
+    this.getPlayerDeck()
   }
 
-startObject: iMonsters = {
-  id: 0,
-  name: '',
-  type: '',
-  description: '',
-  principale: '',
-  debolezza: '',
-  hp: 0,
-  atk: 0,
-  def: 0,
-  speed: 0,
-  stamina: 0,
-  img: '',
-  icon: '',
-  locked: false,
-  indeck: false,
-  sfondo: ''
+// FACCIO UNA CHIAMATA A DECK GIOCATORE E DECK OPPONENT E COSI' OTTENGO I DATI DEGLI ELEMENTI IN GIOCO
+// UN BEHAVIOR PER IL PLAYER, UN BEHAVIOR PER L'OPPONENT
+// IL PRIMO MOSTRO VISUALIZZATO SARA' INDEX[0]
+// CREO DELLE FUNZIONI CHE AGGIORNINO IL BEHAVIOR DEL PLAYER E IL BEHAVIOR DELL'OPPONENT
+// IN QUESTE FUNZIONI SI AGGIORNERA' IL BEHAVIOR E IL SERVER
+
+// PARTE DEL PLAYER
+
+playerInGame = new BehaviorSubject<iMonsters[]>([])
+player$ = this.playerInGame.asObservable()
+
+
+getPlayerDeck():void {
+this.callPlayer.get<iMonsters[]>(this.playerUrl).subscribe(playerDeck => {
+  this.playerInGame.next(playerDeck)
+})
 }
 
-private playerCard = new BehaviorSubject<iMonsters>(this.startObject)
-player$ = this.playerCard.asObservable()
-
-private opponentCard = new BehaviorSubject<iMonsters>(this.startObject)
-opponent$ = this.opponentCard.asObservable()
-
-sendPlayerCards(card:iMonsters) {
-this.playerCard.next(card)
-}
-
-sendOpponentCards(card:iMonsters) {
-this.opponentCard.next(card)
-}
-
-// HP E STAMINA PLAYER
-
-startStatistic: iBattle = {
-  id: 0,
-  hp: 0,
-  stamina: 0
-}
-
-private playerStatistics = new BehaviorSubject<iBattle>(this.startStatistic)
-playerStatistics$ = this.playerStatistics.asObservable()
-
-
-updateHpPlayer(update:number):void {
-
-// RECUPERO I DATI ATTUALI DEL BEHAVIOR
-const currentStats:iBattle = this.playerStatistics.getValue()
-// CREO UN CLONE IN CUI MOdIficO SOLO IL VALORE CHE MI SERVE
-const updateHp:iBattle = {...currentStats, hp: update}
-// UPDATO IL CLONE
-this.playerStatistics.next(updateHp)
-
-}
-
-updateStaminaPlayer(update:number):void {
-
-  const currentStats:iBattle = this.playerStatistics.getValue()
-  const updateHp:iBattle = {...currentStats, stamina: update}
-  this.playerStatistics.next(updateHp)
-
-  }
-
-
-// HP E STAMINA OPPONENT
-
-private opponentStatistics = new BehaviorSubject<iBattle>(this.startStatistic)
-opponentStatistics$ = this.opponentStatistics.asObservable()
-
-
-updateHpOpponent(update:number):void {
-
-  const currentStats:iBattle = this.opponentStatistics.getValue()
-  const updateHp:iBattle = {...currentStats, stamina: update}
-  this.playerStatistics.next(updateHp)
-
-  }
-
-  updateStaminaOpponent(update:number):void {
-
-    const currentStats:iBattle = this.opponentStatistics.getValue()
-    const updateHp:iBattle = {...currentStats, stamina: update}
-    this.playerStatistics.next(updateHp)
-
+updateCardPlayer(card: iMonsters): void {
+  this.callPlayer.put<iMonsters>(`${this.playerUrl}/${card.id}`, card).subscribe({
+    next: (cardModify: iMonsters) => {
+      const currentPlayerDeck = this.playerInGame.getValue();
+      const index = currentPlayerDeck.findIndex(c => c.id === cardModify.id);
+      if (index !== -1) {
+        currentPlayerDeck[index] = cardModify;
+      }
+      this.playerInGame.next([...currentPlayerDeck]);
     }
-
-// PARTE CHE SI RIFERISCE AL SERVER
-// QUI CARICO IL MIO OGGETTO
-
-private getPlayerStatistic() {
-  this.http.get<iBattle[]>(this.battleUrl).subscribe(dati => {
-this.playerStatistics.next(dati[0])
-  })
+  });
 }
 
-private getOpponentStatistic() {
-  this.http.get<iBattle[]>(this.battleUrl).subscribe(dati => {
-this.opponentStatistics.next(dati[1])
-  })
+// PARTE DELL'OPPONENT
+
+opponentInGame = new BehaviorSubject<iMonsters[]>([])
+Opponent$ = this.opponentInGame.asObservable()
+
+
+getOpponentDeck():void {
+this.callOpponent.get<iMonsters[]>(this.opponentUrl).subscribe(OpponentDeck => {
+  this.opponentInGame.next(OpponentDeck)
+})
 }
 
-// QUI ESEGUO L'UPDATE
-
-updatePlayer(objModified:iBattle) {
-this.http.put<Partial<iBattle>>(`${this.battleUrl}/${objModified.id}`, objModified)
+updateCardOpponent(card: iMonsters): void {
+  this.callOpponent.put<iMonsters>(`${this.opponentUrl}/${card.id}`, card).subscribe({
+    next: (cardModify: iMonsters) => {
+      const currentOpponentDeck = this.opponentInGame.getValue();
+      const index = currentOpponentDeck.findIndex(c => c.id === cardModify.id);
+      if (index !== -1) {
+        currentOpponentDeck[index] = cardModify;
+      }
+      this.opponentInGame.next([...currentOpponentDeck]);
+    }
+  });
 }
-
-updateOpponent(objModified:iBattle) {
-  this.http.put<Partial<iBattle>>(`${this.battleUrl}/${objModified.id}`, objModified)
-  }
 
 }
