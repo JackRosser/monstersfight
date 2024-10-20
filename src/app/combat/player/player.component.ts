@@ -107,7 +107,7 @@ ngOnInit() {
     this.barraStaminaPlayer = `${this.playerInGame.barraStamina}%`
   }
 
- })
+ }
 
  this.battleSvc.playerStatistics$.subscribe(statistics => {
   this.playerHp = statistics.hp
@@ -126,4 +126,4 @@ this.battleSvc.opponent$.subscribe(monster => {
 }
 
 
-}
+
