@@ -42,3 +42,14 @@
 // // DANNO BASE: Calcolo del danno inflitto all'avversario
 // const damageToOpponent = this.playerInGame.atk - (this.opponentInGame.def * 0.15);
 // this.damageOpponent = this.opponentInGame.hp -= damageToOpponent;
+
+
+
+// this.playerInGame.hp = event.damagePlayer
+// this.opponentInGame.hp = event.damageOpponent
+// this.playerInGame.stamina = event.staminaPlayer
+// this.opponentInGame.stamina = event.staminaOpponent
+// this.playerInGame.barraHp = (this.playerInGame.hp / this.playerClone[0].hp) * 100;
+// this.opponentInGame.barraHp = (this.opponentInGame.hp / this.opponentClone[0].hp) * 100;
+// this.playerInGame.barraStamina = (this.playerInGame.stamina / this.playerClone[0].stamina) * 100
+// this.opponentInGame.barraStamina = (this.opponentInGame.stamina / this.opponentClone[0].stamina) * 100

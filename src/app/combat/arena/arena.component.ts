@@ -63,17 +63,24 @@ if (this.opponentInGame.hp <= 0) {
 }
 
 //CALCOLO I DANNI E AGGIORNO LE BARRE
-this.playerInGame.hp = event.damagePlayer
-this.opponentInGame.hp = event.damageOpponent
-this.playerInGame.stamina = event.staminaPlayer
-this.opponentInGame.stamina = event.staminaOpponent
-this.playerInGame.barraHp = (this.playerInGame.hp / this.playerClone[0].hp) * 100;
-this.opponentInGame.barraHp = (this.opponentInGame.hp / this.opponentClone[0].hp) * 100;
-this.playerInGame.barraStamina = (this.playerInGame.stamina / this.playerClone[0].stamina) * 100
-this.opponentInGame.barraStamina = (this.opponentInGame.stamina / this.opponentClone[0].stamina) * 100
-console.log("PLAYeR",this.playerClone[0]);
-console.log("OPPO",this.opponentClone[0]);
 
+//PLAYER
+// Prima DECREMENTO stamina e HP
+this.playerInGame = {...this.playerInGame, hp: event.damagePlayer, stamina: this.playerInGame.stamina - (this.playerInGame.stamina * 0.15)};
+
+// Poi DECREMENTO le barre HP e stamina DAI VALORI GIA DECREMENTATI
+this.playerInGame = {...this.playerInGame, barraHp: (this.playerInGame.hp / this.playerClone[0].hp) * 100, barraStamina: (this.playerInGame.stamina / this.playerClone[0].stamina) * 100};
+
+//OPPONENT
+// Prima DECREMENTO stamina e HP
+this.opponentInGame = {...this.opponentInGame, hp: event.damageOpponent, stamina: this.opponentInGame.stamina - (this.opponentInGame.stamina * 0.15)};
+
+// Poi DECREMENTO le barre HP e stamina DAI VALORI GIA DECREMENTATI
+this.opponentInGame = {...this.opponentInGame, barraHp: (this.opponentInGame.hp / this.opponentClone[0].hp) * 100, barraStamina: (this.opponentInGame.stamina / this.opponentClone[0].stamina) * 100};
+
+
+console.log("player",this.playerInGame);
+console.log("opponent",this.opponentInGame);
 
 
 
