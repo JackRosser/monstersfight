@@ -16,14 +16,14 @@
 
   <div class="bg-black w-full flex flex-col items-start h-[30px] justify-end">
     <div
-      *ngIf="playerHp"
+      *ngIf="playerHpBar"
       class="bg-green-500 shadow-inner"
-      [ngStyle]="{ width: playerHpGraphic, height: '15px' }"
+      [ngStyle]="{ width: playerHpBar, height: '15px' }"
     ></div>
     <div
-      *ngIf="playerStamina"
+      *ngIf="playerStaminaBar"
       class="bg-sky-400 shadow-inner"
-      [ngStyle]="{ width: playerStaminaGraphic, height: '15px' }"
+      [ngStyle]="{ width: playerStaminaBar, height: '15px' }"
     ></div>
   </div>
 

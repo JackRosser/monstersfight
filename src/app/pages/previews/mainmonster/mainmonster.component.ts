@@ -31,7 +31,11 @@ monsterActive: iMonsters = {
   icon: '',
   locked: false,
   indeck: false,
-  sfondo: ''
+  sfondo: '',
+  minore: '',
+  barraHp: 0,
+  barraStamina: 0,
+  forza: ''
 }
 
 @Input() set mostroAttivo(value: iMonsters | null) {

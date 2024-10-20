@@ -21,32 +21,23 @@ export class OpponentComponent {
 
 opponentMonster!:iMonsters
 background!:string
-opponentHpGraphic!:string
-opponentStaminaGraphic!:string
-opponentHp!: number
-opponentStamina!: number
+opponentHpBar!: string
+opponentStaminaBar!: string
+
 
 ngOnInit() {
   this.battleSvc.opponent$.subscribe(monster => {
-    this.opponentMonster = monster
+    this.opponentMonster = monster[0]
     if(this.opponentMonster) {
-      this.background = `url(${monster.sfondo})`
-      }
-  })
-
-  this.battleSvc.playerStatistics$.subscribe(statistics => {
-    this.opponentHp = statistics.hp
-    this.opponentStamina = statistics.stamina
-    if(this.opponentHp && this.opponentStamina) {
-  this.opponentHpGraphic = `${this.opponentHp}%`
-  this.opponentStaminaGraphic = `${this.opponentStamina}%`
+    this.background = `url(${monster[0].sfondo})`
+    this.opponentHpBar = `${monster[0].barraHp}%`
+    this.opponentStaminaBar = `${monster[0].barraStamina}%`
     }
-   })
+  })
 
 
 
 }
-
 
 
 }
