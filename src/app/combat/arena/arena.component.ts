@@ -1,3 +1,4 @@
+import { PlayerComponent } from './../player/player.component';
 import { Component } from '@angular/core';
 import { DeckService } from '../../services/deck.service';
 import { BattleService } from '../../services/battle.service';
@@ -23,6 +24,14 @@ export class ArenaComponent {
   toggleAnimation: boolean = false;
 
   constructor(private battleSvc: BattleService) {}
+
+test(newHp:number):void {
+  this.playerInGame = {...this.playerInGame, barraHp: newHp}
+  console.log(this.playerInGame);
+
+
+}
+
 
   ngOnInit(): void {
     // Sottoscrizione per il deck del player

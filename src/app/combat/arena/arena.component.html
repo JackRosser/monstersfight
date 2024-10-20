@@ -14,6 +14,12 @@
   <div
     class="absolute flex bottom-0 gap-3 md:gap-10 lg:gap-40 justify-center w-full p-10 h-full items-center md:items-end"
   >
+    <button
+      class="absolute top-0 right-0 border z-50 bg-black p-5 text-white"
+      (click)="test(50)"
+    >
+      test
+    </button>
     <app-player
       [battleAnimationPlayer]="battleAnimationPlayer"
       [toggleAnimation]="toggleAnimation"
