@@ -22,6 +22,8 @@ export class ArenaComponent {
   battleAnimationPlayer: string = 'none';
   battleAnimationOpponent: string = 'none';
   toggleAnimation: boolean = false;
+  indexPlayer:number = 0
+  indexOpponent:number = 0
 
   constructor(private battleSvc: BattleService) {}
 
@@ -48,14 +50,21 @@ test(newHp:number):void {
       this.toggleAnimation = false;
     }, 500);
 //GESTISCO IL MOSTRO MORTO___________________________________________________
+
+
+
 if (this.playerInGame.hp <= 0) {
-  this.playerClone.splice(0, 1);
-  this.playerInGame = this.playerClone[0]
+this.indexPlayer++
+this.playerInGame = {...this.playerClone[this.indexPlayer], hp:this.playerClone[this.indexPlayer].hp, stamina:this.playerClone[this.indexPlayer].stamina, barraHp:100, barraStamina:100}
 }
 
 if (this.opponentInGame.hp <= 0) {
-  this.opponentClone.splice(0, 1);
-  this.opponentInGame = this.opponentClone[0]}
+this.indexOpponent++
+this.opponentInGame = {...this.opponentClone[this.indexPlayer], hp:this.opponentClone[this.indexPlayer].hp, stamina:this.opponentClone[this.indexPlayer].stamina, barraHp:100, barraStamina:100}
+}
+
+
+
 
 //CALCOLO I DANNI E AGGIORNO LE BARRE
 
@@ -92,7 +101,7 @@ console.log("opponent",this.opponentInGame);
     this.battleSvc.player$.subscribe(playerDeck => {
       this.playerClone = JSON.parse(JSON.stringify(playerDeck)); // Deep copy del player deck
     if (this.playerClone) {
-      this.playerInGame = this.playerClone[0]
+      this.playerInGame = this.playerClone[this.indexPlayer]
     }
     });
 
@@ -100,7 +109,7 @@ console.log("opponent",this.opponentInGame);
     this.battleSvc.opponent$.subscribe(opponentDeck => {
       this.opponentClone = JSON.parse(JSON.stringify(opponentDeck)); // Deep copy dell'opponent deck
     if(this.opponentClone) {
-      this.opponentInGame = this.opponentClone[0]
+      this.opponentInGame = this.opponentClone[this.indexOpponent]
     }
     });
   }
