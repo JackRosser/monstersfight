@@ -11,49 +11,48 @@ import { combineLatest } from 'rxjs';
 })
 export class ArenaComponent {
 
-  constructor(private chiamataPlayer: DeckService, private battleSvc: BattleService) {}
 
-  playerInCombat!: iMonsters;
-  opponentInCombat!: iMonsters;
+  playerClone!: iMonsters[]
+  opponentClone!: iMonsters[]
 
-  // Animazioni di battaglia
+  playerInGame!:iMonsters
+  opponentInGame!:iMonsters
+
   battleAnimationPlayer: string = 'none';
   battleAnimationOpponent: string = 'none';
   toggleAnimation: boolean = false;
 
-  // Funzione che riceve i dati dalla battaglia e avvia l'animazione
-  battle(event: { animation: string, toggle: boolean, damagePlayer: number, damageOpponent: number }) {
-    // Reset delle animazioni prima di attivarle
-    this.battleAnimationPlayer = 'none';
-    this.battleAnimationOpponent = 'none';
-    this.toggleAnimation = event.toggle;
+  constructor(private battleSvc: BattleService) {}
 
-    // Invia il danno aggiornato al servizio BattleService
-    this.battleSvc.updateHpPlayer(event.damagePlayer);
-    this.battleSvc.updateHpOpponent(event.damageOpponent);
+  ngOnInit(): void {
+    // Sottoscrizione per il deck del player
+    this.battleSvc.player$.subscribe(playerDeck => {
+      this.playerClone = JSON.parse(JSON.stringify(playerDeck)); // Deep copy del player deck
+    if (this.playerClone) {
+      this.playerInGame = this.playerClone[0]
+    }
+    });
 
-    // Avvia le animazioni con un leggero ritardo
-    setTimeout(() => {
-      if (this.toggleAnimation) {
-        this.battleAnimationPlayer = event.animation;
-        this.battleAnimationOpponent = 'opponent 500ms ease-in-out';
-        this.toggleAnimation = !this.toggleAnimation;
-      }
-    }, 10);
-  }
-
-  ngOnInit() {
-    // Ottieni i mostri in combattimento (player e opponent)
-    combineLatest([
-      this.chiamataPlayer.deck$,
-      this.battleSvc.opponent$
-    ]).subscribe(([cardPlayerInCombat, cardOpponentInCombat]) => {
-      this.playerInCombat = cardPlayerInCombat[0];
-      this.opponentInCombat = cardOpponentInCombat[0];
-
-      // Invia i dati dei mostri al BattleService
-      this.battleSvc.updateCardPlayer(this.playerInCombat);
-      this.battleSvc.updateCardOpponent(this.opponentInCombat);
+    // Sottoscrizione per il deck dell'opponent
+    this.battleSvc.opponent$.subscribe(opponentDeck => {
+      this.opponentClone = JSON.parse(JSON.stringify(opponentDeck)); // Deep copy dell'opponent deck
+    if(this.opponentClone) {
+      this.opponentInGame = this.opponentClone[0]
+    }
     });
   }
+
+
+  // Funzione che riceve i danni calcolati e avvia l'animazione
+  battle(event: { animation: string, toggle: boolean, damagePlayer: number, damageOpponent: number }) {
+    this.battleAnimationPlayer = event.animation;
+    this.toggleAnimation = event.toggle;
+
+    // Resetta le animazioni con un leggero ritardo
+    setTimeout(() => {
+      this.battleAnimationPlayer = 'none';
+      this.toggleAnimation = false;
+    }, 500);
+  }
+
 }

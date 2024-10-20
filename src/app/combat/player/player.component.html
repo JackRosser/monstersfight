@@ -1,5 +1,5 @@
 <div
-  *ngIf="playerMonster"
+  *ngIf="playerInGame"
   class="flex flex-col items-center border shadow-md p-3 max-h-[90vh] w-full max-w-full"
   [ngStyle]="{
     background: background,
@@ -9,21 +9,21 @@
   }"
 >
   <img
-    [src]="playerMonster.img"
+    [src]="playerInGame.img"
     alt="imagemonster"
     class="w-full max-h-[50vh] object-contain"
   />
 
   <div class="bg-black w-full flex flex-col items-start h-[30px] justify-end">
     <div
-      *ngIf="playerHpBar"
+      *ngIf="barraHpPlayer"
       class="bg-green-500 shadow-inner"
-      [ngStyle]="{ width: playerHpBar, height: '15px' }"
+      [ngStyle]="{ width: barraHpPlayer, height: '15px' }"
     ></div>
     <div
-      *ngIf="playerStaminaBar"
+      *ngIf="barraHpPlayer"
       class="bg-sky-400 shadow-inner"
-      [ngStyle]="{ width: playerStaminaBar, height: '15px' }"
+      [ngStyle]="{ width: barraStaminaPlayer, height: '15px' }"
     ></div>
   </div>
 
@@ -36,7 +36,7 @@
         alt="atkicon"
         class="max-h-[50px] rounded-full"
       />
-      <span class="bg-black px-2 rounded-full">{{ playerMonster.atk }}</span>
+      <span class="bg-black px-2 rounded-full">{{ playerInGame.atk }}</span>
     </div>
     <div
       class="text-white flex flex-col items-center justify-center gap-2 my-2 w-1/3"
@@ -46,7 +46,7 @@
         alt="atkicon"
         class="max-h-[50px] rounded-full"
       />
-      <span class="bg-black px-2 rounded-full">{{ playerMonster.def }}</span>
+      <span class="bg-black px-2 rounded-full">{{ playerInGame.def }}</span>
     </div>
     <div
       class="text-white flex flex-col items-center justify-center gap-2 my-2 w-1/3"
@@ -56,7 +56,7 @@
         alt="atkicon"
         class="max-h-[50px] rounded-full"
       />
-      <span class="bg-black px-2 rounded-full">{{ playerMonster.speed }}</span>
+      <span class="bg-black px-2 rounded-full">{{ playerInGame.speed }}</span>
     </div>
   </div>
 

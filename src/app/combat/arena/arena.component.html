@@ -18,10 +18,14 @@
       [battleAnimationPlayer]="battleAnimationPlayer"
       [toggleAnimation]="toggleAnimation"
       (battleEmit)="battle($event)"
+      [playerInGame]="playerInGame"
+      [opponentInGame]="opponentInGame"
     ></app-player>
     <app-opponent
       [battleAnimationOppoent]="battleAnimationOpponent"
       [toggleAnimation]="toggleAnimation"
+      [playerInGame]="playerInGame"
+      [opponentInGame]="opponentInGame"
     ></app-opponent>
   </div>
 </section>
