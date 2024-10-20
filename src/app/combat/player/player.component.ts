@@ -15,6 +15,7 @@ export class PlayerComponent {
 // GESTIONE ANIMAZIONE BATTAGLIA
 
   @Input() battleAnimationPlayer!: string;
+  @Input() battleAnimationOpponent!: string;
   @Input() toggleAnimation!: boolean;
 
 

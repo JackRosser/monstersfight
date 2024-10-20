@@ -25,6 +25,7 @@ export class ArenaComponent {
 
   constructor(private battleSvc: BattleService) {}
 
+// FuNZIONE DI ESEMPIO, SE VOGLIO MODIFICARE LA BARRA DEVO MODIFICARE TUTTO L'OGGETTO
 test(newHp:number):void {
   this.playerInGame = {...this.playerInGame, barraHp: newHp}
   console.log(this.playerInGame);
@@ -55,11 +56,13 @@ test(newHp:number):void {
   // Funzione che riceve i danni calcolati e avvia l'animazione
   battle(event: { animation: string, toggle: boolean, damagePlayer: number, damageOpponent: number }) {
     this.battleAnimationPlayer = event.animation;
+    this.battleAnimationOpponent = 'opponent 500ms ease-in-out'
     this.toggleAnimation = event.toggle;
 
     // Resetta le animazioni con un leggero ritardo
     setTimeout(() => {
       this.battleAnimationPlayer = 'none';
+      this.battleAnimationOpponent = 'none';
       this.toggleAnimation = false;
     }, 500);
   }
