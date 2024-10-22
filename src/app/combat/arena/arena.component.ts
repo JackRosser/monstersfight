@@ -53,6 +53,13 @@ test(newHp:number):void {
 
 
 
+// utilizzare un metodo per creare novo oggetto
+funzionr(mostroattuale)
+
+// DEVO CREARE UNA CLASSE E SETTARE I NUOVI VALORI SU QUELLA
+
+this.opponentInGame = new NuovoMostro{} // dentro scrivo i valori della destrutturazione
+
 if (this.playerInGame.hp <= 0) {
 this.indexPlayer++
 this.playerInGame = {...this.playerClone[this.indexPlayer], hp:this.playerClone[this.indexPlayer].hp, stamina:this.playerClone[this.indexPlayer].stamina, barraHp:100, barraStamina:100}
