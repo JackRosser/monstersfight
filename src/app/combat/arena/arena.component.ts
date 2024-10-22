@@ -1,9 +1,7 @@
-import { PlayerComponent } from './../player/player.component';
 import { Component } from '@angular/core';
-import { DeckService } from '../../services/deck.service';
 import { BattleService } from '../../services/battle.service';
 import { iMonsters } from '../../models/i-monsters';
-import { combineLatest } from 'rxjs';
+import { Monster } from '../../classes/monster';
 
 @Component({
   selector: 'app-arena',
@@ -35,7 +33,118 @@ test(newHp:number):void {
 
 }
 
+// FUNZIONI PER QUANDO ENTRA UN NUOVO MOSTRO IN BATTAGLIA
 
+enterNewMonsterPlayer(monster:iMonsters): void {
+  this.playerInGame = new Monster(
+    monster.id,
+    monster.name,
+    monster.type,
+    monster.description,
+    monster.principale,
+    monster.minore,
+    monster.barraHp,
+    monster.barraStamina,
+    monster.hp,
+    monster.atk,
+    monster.def,
+    monster.speed,
+    monster.stamina,
+    monster.img,
+    monster.icon,
+    monster.locked,
+    monster.indeck,
+    monster.sfondo,
+    monster.debolezza,
+    monster.forza
+  )
+}
+
+enterNewMonsterOpponent(monster:iMonsters): void {
+    this.opponentInGame = new Monster(
+      monster.id,
+      monster.name,
+      monster.type,
+      monster.description,
+      monster.principale,
+      monster.minore,
+      monster.barraHp,
+      monster.barraStamina,
+      monster.hp,
+      monster.atk,
+      monster.def,
+      monster.speed,
+      monster.stamina,
+      monster.img,
+      monster.icon,
+      monster.locked,
+      monster.indeck,
+      monster.sfondo,
+      monster.debolezza,
+      monster.forza
+    )
+  }
+
+// FUNZIONI PER CAMBIARE LE STATISTICHE DEI MOSTRI PRESENTI
+
+playerMonsterDamaged(monster:iMonsters, damage:number) {
+  let clone = this.playerClone[0]
+  let inGame = this.playerInGame
+  this.playerInGame = new Monster (
+    monster.id = clone.id,
+    monster.name = clone.name,
+    monster.type = clone.type,
+    monster.description = clone.description,
+    monster.principale = clone.principale,
+    monster.minore = clone.minore,
+    monster.barraHp = (inGame.hp / clone.hp) * 100,
+    monster.barraStamina = (inGame.stamina / clone.stamina) * 100,
+    monster.hp = damage,
+    monster.atk = clone.atk,
+    monster.def = clone.def,
+    monster.speed = clone.speed,
+    monster.stamina = inGame.stamina - (inGame.stamina * 0.15),
+    monster.img = clone.img,
+    monster.icon = clone.icon,
+    monster.locked = clone.locked,
+    monster.indeck = clone.indeck,
+    monster.sfondo = clone.sfondo,
+    monster.debolezza = clone.debolezza,
+    monster.forza = clone.forza
+  )
+
+}
+
+opponentMonsterDamaged(monster:iMonsters, damage:number) {
+  let clone = this.opponentClone[0]
+  let inGame = this.opponentInGame
+  this.opponentInGame = new Monster (
+    monster.id = clone.id,
+    monster.name = clone.name,
+    monster.type = clone.type,
+    monster.description = clone.description,
+    monster.principale = clone.principale,
+    monster.minore = clone.minore,
+    monster.barraHp = (inGame.hp / clone.hp) * 100,
+    monster.barraStamina = (inGame.stamina / clone.stamina) * 100,
+    monster.hp = damage,
+    monster.atk = clone.atk,
+    monster.def = clone.def,
+    monster.speed = clone.speed,
+    monster.stamina = inGame.stamina - (inGame.stamina * 0.15),
+    monster.img = clone.img,
+    monster.icon = clone.icon,
+    monster.locked = clone.locked,
+    monster.indeck = clone.indeck,
+    monster.sfondo = clone.sfondo,
+    monster.debolezza = clone.debolezza,
+    monster.forza = clone.forza
+  )
+
+}
+
+
+// cambiare hp e stamina di ingame
 
 // BATTAGLIA!!!!!!!!
   battle(event: { animation: string, toggle: boolean, damagePlayer: number, damageOpponent: number, staminaPlayer:number, staminaOpponent:number }) {
@@ -49,51 +158,33 @@ test(newHp:number):void {
       this.battleAnimationOpponent = 'none';
       this.toggleAnimation = false;
     }, 500);
-//GESTISCO IL MOSTRO MORTO___________________________________________________
 
-
-
-// utilizzare un metodo per creare novo oggetto
-funzionr(mostroattuale)
-
-// DEVO CREARE UNA CLASSE E SETTARE I NUOVI VALORI SU QUELLA
-
-this.opponentInGame = new NuovoMostro{} // dentro scrivo i valori della destrutturazione
+// GESTISCO I MORTI
 
 if (this.playerInGame.hp <= 0) {
-this.indexPlayer++
-this.playerInGame = {...this.playerClone[this.indexPlayer], hp:this.playerClone[this.indexPlayer].hp, stamina:this.playerClone[this.indexPlayer].stamina, barraHp:100, barraStamina:100}
+  let newEntry = this.playerClone.filter(monster => monster.id !== this.playerClone[0].id);
+
+  if (newEntry.length > 0) {
+    this.enterNewMonsterPlayer(newEntry[0]);
+  } else {
+    alert("deck del player esaurito")
+  }
 }
 
 if (this.opponentInGame.hp <= 0) {
-this.indexOpponent++
-this.opponentInGame = {...this.opponentClone[this.indexPlayer], hp:this.opponentClone[this.indexPlayer].hp, stamina:this.opponentClone[this.indexPlayer].stamina, barraHp:100, barraStamina:100}
+  let newEntry = this.opponentClone.filter(monster => monster.id !== this.opponentClone[0].id);
+
+  if (newEntry.length > 0) {
+    this.enterNewMonsterOpponent(newEntry[0]);
+  } else {
+    alert("deck dell'oppo esaurito")
+  }
 }
-
-
-
 
 //CALCOLO I DANNI E AGGIORNO LE BARRE
 
-//PLAYER
-// Prima DECREMENTO stamina e HP
-this.playerInGame = {...this.playerInGame, hp: event.damagePlayer, stamina: this.playerInGame.stamina - (this.playerInGame.stamina * 0.15)};
-
-// Poi DECREMENTO le barre HP e stamina DAI VALORI GIA DECREMENTATI
-this.playerInGame = {...this.playerInGame, barraHp: (this.playerInGame.hp / this.playerClone[0].hp) * 100, barraStamina: (this.playerInGame.stamina / this.playerClone[0].stamina) * 100};
-
-//OPPONENT
-// Prima DECREMENTO stamina e HP
-this.opponentInGame = {...this.opponentInGame, hp: event.damageOpponent, stamina: this.opponentInGame.stamina - (this.opponentInGame.stamina * 0.15)};
-
-// Poi DECREMENTO le barre HP e stamina DAI VALORI GIA DECREMENTATI
-this.opponentInGame = {...this.opponentInGame, barraHp: (this.opponentInGame.hp / this.opponentClone[0].hp) * 100, barraStamina: (this.opponentInGame.stamina / this.opponentClone[0].stamina) * 100};
-
-
-console.log("player",this.playerInGame);
-console.log("opponent",this.opponentInGame);
-
-
+this.playerMonsterDamaged(this.playerInGame, event.damagePlayer)
+this.opponentMonsterDamaged(this.opponentInGame, event.damageOpponent)
 
 
 //FINE FUNZIONE_________________________________________________
